@@ -1,50 +1,127 @@
-# React + TypeScript + Vite
+# Chakra UI + Recharts
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Construido con la libreria de UI [@ChakraUI](https://v2.chakra-ui.com/) y [@Recharts](https://recharts.org/en-US/) para generar gráfico de diferente estilos para proyectos React open source.
 
-Currently, two official plugins are available:
+## Copiar y pegar en tus proyectos
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Es tan sencillo como copiar y pegar el code en tu proyecto y darle la forma que quieras.
+Habrá un ejemplo real de la implementación que podrás visualizar en la app.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
+- Ejemplo de código:
 
 ```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+import {
+  Card,
+  CardBody,
+  CardFooter,
+  CardHeader,
+  Divider,
+  Flex,
+  Heading,
+  StepSeparator,
+  Text,
+  useColorModeValue,
+} from "@chakra-ui/react";
+import React, { PureComponent } from "react";
+import {
+  BarChart,
+  Bar,
+  ResponsiveContainer,
+  Tooltip,
+  Legend,
+  PieChart,
+  Pie,
+  Cell,
+  Label,
+  CartesianGrid,
+  XAxis,
+  YAxis,
+  Rectangle,
+} from "recharts";
+
+const getRamdom = () => {
+  return Math.floor(Math.random() * 10000);
+};
+
+const data = [
+  { mes: "Ene", visitas: getRamdom() },
+  { mes: "Feb", visitas: getRamdom() },
+  { mes: "Mar", visitas: getRamdom() },
+  { mes: "Abr", visitas: getRamdom() },
+  { mes: "May", visitas: getRamdom() },
+  { mes: "Jun", visitas: getRamdom() },
+  { mes: "Jul", visitas: getRamdom() },
+  { mes: "Ago", visitas: getRamdom() },
+  { mes: "Sep", visitas: getRamdom() },
+  { mes: "Oct", visitas: getRamdom() },
+  { mes: "Nov", visitas: getRamdom() },
+  { mes: "Dic", visitas: getRamdom() },
+];
+
+const COLORS = [
+  "#0088FE",
+  "#00C49F",
+  "#FFBB28",
+  "#FF8042",
+  "#0088FE",
+  "#00C49F",
+  "#FFBB28",
+  "#FF8042",
+  "#0088FE",
+  "#00C49F",
+  "#FFBB28",
+  "#FF8042",
+];
+
+export const BarCharts = () => {
+  return (
+    <Flex
+      justifyContent={"center"}
+      alignContent={"center"}
+      width={{ base: "100%", md: "50%" }}
+      height={"100%"}
+    >
+      <Card bg={useColorModeValue("gray.50", "gray.900")}>
+        <CardHeader>
+          <Heading as="h2" size={"md"} textAlign={"center"}>
+            Visitas Mensuales
+          </Heading>
+        </CardHeader>
+        <CardBody>
+          <BarChart width={700} height={500} accessibilityLayer data={data}>
+            <XAxis
+              dataKey="mes"
+              tickLine={false}
+              tickMargin={10}
+              axisLine={false}
+              tickFormatter={(value) => value.slice(0, 3)}
+            />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <Bar
+              dataKey="visitas"
+              fill={COLORS[Math.floor(Math.random() * COLORS.length)]}
+              strokeWidth={2}
+              radius={8}
+            />
+          </BarChart>
+        </CardBody>
+        <Divider />
+        <CardFooter width={"100%"}>
+          <Text textAlign={"center"} width={"100%"}>
+            Resumen mensual del número de visitas de tus publicaciones en
+            Unipensiones
+          </Text>
+        </CardFooter>
+      </Card>
+    </Flex>
+  );
+};
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Autor
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+Hecho por [@Fainner Ramirez](https://v2.chakra-ui.com/)
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- ¿Quieres ser sponsor? [sponsorsup](https://link.mercadopago.com.co/sponsorsup)
