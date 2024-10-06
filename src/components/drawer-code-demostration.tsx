@@ -15,6 +15,7 @@ import {
   HStack,
   Input,
   useDisclosure,
+  useToast,
   VStack,
 } from "@chakra-ui/react";
 import { BarCharts } from "./Barcharts/bart-chart";
@@ -22,8 +23,30 @@ import SyntaxHighlighter from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { IoMdCopy } from "react-icons/io";
 
-const DrawerCodeDemostration = () => {
+const DrawerCodeDemostration = ({ code, children, title }: any) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const toast = useToast();
+
+  const handleCopyCode = (code: string) => {
+    return navigator.clipboard
+      .writeText(code)
+      .then(() => {
+        toast({
+          title: "Código copiado",
+          status: "info",
+          duration: 3000,
+          isClosable: true,
+        });
+      })
+      .catch((error) => {
+        toast({
+          title: "Error al copiar código",
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+        });
+      });
+  };
 
   return (
     <>
@@ -34,10 +57,14 @@ const DrawerCodeDemostration = () => {
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
-          <DrawerHeader>Gráfica Barra Simple</DrawerHeader>
+          <DrawerHeader>{title}</DrawerHeader>
           <DrawerBody>
-            <Card>
-              <BarCharts isDrawer={true} />
+            <Card
+              display={"flex"}
+              justifyContent={"center"}
+              alignItems={"center"}
+            >
+              {children}
             </Card>
             <Divider orientation="horizontal" padding={3} />
             <Box marginTop={7}>
@@ -51,112 +78,18 @@ const DrawerCodeDemostration = () => {
                   <Button variant={"primary"} size={"small"}>
                     Código
                   </Button>
-                  <Button variant={"outline"} size={"sm"} fontSize={20}>
+                  <Button
+                    variant={"outline"}
+                    size={"sm"}
+                    fontSize={20}
+                    onClick={() => handleCopyCode(code)}
+                  >
                     <IoMdCopy />
                   </Button>
                 </Flex>
                 <Box width={"98%"}>
                   <SyntaxHighlighter language="javascript" style={atomOneDark}>
-                    {`import {
-  Card,
-  CardBody,
-  CardFooter,
-  CardHeader,
-  Divider,
-  Flex,
-  Heading,
-  StepSeparator,
-  Text,
-  useColorModeValue,
-} from "@chakra-ui/react";
-import React, { PureComponent } from "react";
-import {
-  BarChart,
-  Bar,
-  ResponsiveContainer,
-  Tooltip,
-  Legend,
-  PieChart,
-  Pie,
-  Cell,
-  Label,
-  CartesianGrid,
-  XAxis,
-  YAxis,
-  Rectangle,
-} from "recharts";
-
-const getRamdom = () => {
-  return Math.floor(Math.random() * 10000);
-};
-
-const data = [
-  { mes: "Ene", visitas: getRamdom() },
-  { mes: "Feb", visitas: getRamdom() },
-  { mes: "Mar", visitas: getRamdom() },
-  { mes: "Abr", visitas: getRamdom() },
-  { mes: "May", visitas: getRamdom() },
-  { mes: "Jun", visitas: getRamdom() },
-  { mes: "Jul", visitas: getRamdom() },
-  { mes: "Ago", visitas: getRamdom() },
-  { mes: "Sep", visitas: getRamdom() },
-  { mes: "Oct", visitas: getRamdom() },
-  { mes: "Nov", visitas: getRamdom() },
-  { mes: "Dic", visitas: getRamdom() },
-];
-
-const COLORS = [
-  "#0088FE",
-  "#00C49F",
-  "#FFBB28",
-  "#FF8042",
-  "#0088FE",
-  "#00C49F",
-  "#FFBB28",
-  "#FF8042",
-  "#0088FE",
-  "#00C49F",
-  "#FFBB28",
-  "#FF8042",
-];
-
-export const BarCharts = () => {
-  return (
-    <Flex
-      justifyContent={"center"}
-      alignContent={"center"}
-      width={{ base: "100%", md: "50%" }}
-      height={"100%"}
-    >
-      <Card bg={useColorModeValue("gray.50", "gray.900")}>
-        <CardHeader>
-          <Heading as="h2" size={"md"} textAlign={"center"}>
-            Visitas Mensuales
-          </Heading>
-        </CardHeader>
-        <CardBody>
-          <BarChart width={700} height={500} accessibilityLayer data={data}>
-            <YAxis />
-            <Tooltip />
-            <Bar
-              dataKey="visitas"
-              fill={COLORS[Math.floor(Math.random() * COLORS.length)]}
-              strokeWidth={2}
-              radius={8}
-            />
-          </BarChart>
-        </CardBody>
-        <Divider />
-        <CardFooter width={"100%"}>
-          <Text textAlign={"center"} width={"100%"}>
-            Resumen mensual del número de visitas de tus publicaciones en
-            Unipensiones
-          </Text>
-        </CardFooter>
-      </Card>
-    </Flex>
-  );
-};`}
+                    {code}
                   </SyntaxHighlighter>
                 </Box>
               </VStack>

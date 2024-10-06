@@ -1,4 +1,5 @@
-import { Heading, HStack } from "@chakra-ui/react";
+import { ExternalLinkIcon } from "@chakra-ui/icons";
+import { Heading, HStack, Link } from "@chakra-ui/react";
 
 const FooterApp = () => {
   return (
@@ -11,8 +12,11 @@ const FooterApp = () => {
       bg={"#000000"}
       color={"#ffffff"}
     >
-      <Heading as="h1" size={"md"}>
-        Hecho por Fainner Ramirez
+      <Heading as="h1" size={"sm"}>
+        Creator{" "}
+        <Link href="https://github.com/fainnerramirez" isExternal>
+          @Fainner Ramirez <ExternalLinkIcon mx="2px" />
+        </Link>
       </Heading>
     </HStack>
   );

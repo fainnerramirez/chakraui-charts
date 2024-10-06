@@ -5,14 +5,14 @@ import { ColorContext } from "../contexts/PalletteColorContext";
 const PalletteThemeColor = () => {
   const { setPalleteColor } = useContext(ColorContext);
   return (
-    <Stack direction={"column"} spacing={3}>
+    <Stack direction={"column"} spacing={3} position={"fixed"} right={280}>
       <Tooltip label="Verde" placement="right">
         <Button
           bg={"#6A9C89"}
           onClick={() => setPalleteColor("#6A9C89")}
         ></Button>
       </Tooltip>
-      <Tooltip label="Morado" placement="right">
+      <Tooltip label="Púrpura" placement="right">
         <Button
           bg={"#7A1CAC"}
           onClick={() => setPalleteColor("#7A1CAC")}
@@ -30,7 +30,7 @@ const PalletteThemeColor = () => {
           onClick={() => setPalleteColor("#FC6736")}
         ></Button>
       </Tooltip>
-      <Tooltip label="Gris" placement="right">
+      <Tooltip label="Grís" placement="right">
         <Button
           bg={"#7C93C3"}
           onClick={() => setPalleteColor("#7C93C3")}
@@ -42,7 +42,7 @@ const PalletteThemeColor = () => {
           onClick={() => setPalleteColor("#FBA834")}
         ></Button>
       </Tooltip>
-      <Tooltip label="Vino tinto" placement="right">
+      <Tooltip label="Azul celeste" placement="right">
         <Button
           bg={"#3182ce"}
           onClick={() => setPalleteColor("#3182ce")}

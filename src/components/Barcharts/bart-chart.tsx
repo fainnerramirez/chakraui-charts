@@ -29,25 +29,7 @@ import {
 import PalletteColorContext, {
   ColorContext,
 } from "../../contexts/PalletteColorContext";
-
-const getRamdom = () => {
-  return Math.floor(Math.random() * 10000);
-};
-
-const data = [
-  { mes: "Ene", visitas: getRamdom() },
-  { mes: "Feb", visitas: getRamdom() },
-  { mes: "Mar", visitas: getRamdom() },
-  { mes: "Abr", visitas: getRamdom() },
-  { mes: "May", visitas: getRamdom() },
-  { mes: "Jun", visitas: getRamdom() },
-  { mes: "Jul", visitas: getRamdom() },
-  { mes: "Ago", visitas: getRamdom() },
-  { mes: "Sep", visitas: getRamdom() },
-  { mes: "Oct", visitas: getRamdom() },
-  { mes: "Nov", visitas: getRamdom() },
-  { mes: "Dic", visitas: getRamdom() },
-];
+import { DataChart } from "../../utils/data-charts";
 
 export const BarCharts = (props: any) => {
   const { isDrawer } = props;
@@ -61,7 +43,7 @@ export const BarCharts = (props: any) => {
       width={isDrawer ? 600 : 350}
       height={250}
       accessibilityLayer
-      data={data}
+      data={DataChart}
     >
       <Tooltip
         contentStyle={{
