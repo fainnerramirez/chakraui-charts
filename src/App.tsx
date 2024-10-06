@@ -1,3 +1,4 @@
+import PalletteColorContext from "./contexts/PalletteColorContext";
 import Layout from "./layout/Layout";
 import HomeApp from "./pages/home-app";
 

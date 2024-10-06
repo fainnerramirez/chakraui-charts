@@ -10,6 +10,7 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
+import { useContext } from "react";
 import {
   BarChart,
   Bar,
@@ -25,6 +26,9 @@ import {
   YAxis,
   Rectangle,
 } from "recharts";
+import PalletteColorContext, {
+  ColorContext,
+} from "../../contexts/PalletteColorContext";
 
 const getRamdom = () => {
   return Math.floor(Math.random() * 10000);
@@ -47,7 +51,10 @@ const data = [
 
 export const BarCharts = (props: any) => {
   const { isDrawer } = props;
-  const color = useColorModeValue("#000000", "gray");
+  const color = useColorModeValue("#000000", "white");
+  const tooltipColor = useColorModeValue("#000000", "white");
+  const tooltipBg = useColorModeValue("#ffffff", "gray");
+  const { palletteColor } = useContext(ColorContext);
 
   return (
     <BarChart
@@ -56,7 +63,13 @@ export const BarCharts = (props: any) => {
       accessibilityLayer
       data={data}
     >
-      <Tooltip />
+      <Tooltip
+        contentStyle={{
+          color: tooltipColor,
+          backgroundColor: tooltipBg,
+          borderRadius: 10,
+        }}
+      />
       <XAxis
         dataKey="mes"
         tickLine={false}
@@ -64,7 +77,7 @@ export const BarCharts = (props: any) => {
         axisLine={false}
         tickFormatter={(value: any) => value.slice(0, 3)}
       />
-      <Bar dataKey="visitas" fill={color} strokeWidth={2} radius={8} />
+      <Bar dataKey="visitas" fill={palletteColor} strokeWidth={2} radius={8} />
     </BarChart>
   );
 };
