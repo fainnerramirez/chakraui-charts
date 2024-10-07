@@ -3,18 +3,18 @@ const getRamdom = () => {
 };
 
 export const DataChart = [
-  { mes: "Ene", visitas: getRamdom() },
-  { mes: "Feb", visitas: getRamdom() },
-  { mes: "Mar", visitas: getRamdom() },
-  { mes: "Abr", visitas: getRamdom() },
-  { mes: "May", visitas: getRamdom() },
-  { mes: "Jun", visitas: getRamdom() },
-  { mes: "Jul", visitas: getRamdom() },
-  { mes: "Ago", visitas: getRamdom() },
-  { mes: "Sep", visitas: getRamdom() },
-  { mes: "Oct", visitas: getRamdom() },
-  { mes: "Nov", visitas: getRamdom() },
-  { mes: "Dic", visitas: getRamdom() },
+  { mes: "Ene", visitas: getRamdom(), visitas2: getRamdom() },
+  { mes: "Feb", visitas: getRamdom(), visitas2: getRamdom() },
+  { mes: "Mar", visitas: getRamdom(), visitas2: getRamdom() },
+  { mes: "Abr", visitas: getRamdom(), visitas2: getRamdom() },
+  { mes: "May", visitas: getRamdom(), visitas2: getRamdom() },
+  { mes: "Jun", visitas: getRamdom(), visitas2: getRamdom() },
+  { mes: "Jul", visitas: getRamdom(), visitas2: getRamdom() },
+  { mes: "Ago", visitas: getRamdom(), visitas2: getRamdom() },
+  { mes: "Sep", visitas: getRamdom(), visitas2: getRamdom() },
+  { mes: "Oct", visitas: getRamdom(), visitas2: getRamdom() },
+  { mes: "Nov", visitas: getRamdom(), visitas2: getRamdom() },
+  { mes: "Dic", visitas: getRamdom(), visitas2: getRamdom() },
 ];
 
 export const TypeCharts = {

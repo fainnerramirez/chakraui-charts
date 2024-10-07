@@ -25,6 +25,11 @@ import { TypeCharts } from "../utils/data-charts";
 import { v4 as uuidv4 } from "uuid";
 import { ImTextColor } from "react-icons/im";
 import { TriangleUpIcon } from "@chakra-ui/icons";
+import { DobleBarChart } from "./Barcharts/doble-bar-chart";
+import { StakedBarChart } from "./Barcharts/staked-bar-chart";
+import { CustomBarChart } from "./Barcharts/custom-bar-chart";
+import { VerticalBarChart } from "./Barcharts/vertical-bar-chart";
+import { StakedAreaChart } from "./Areacharts/staked-area-chart";
 
 const data = {
   presentation: [
@@ -64,7 +69,7 @@ const data = {
       titleDetails: "Detalles de la gráfica",
       descriptionDetails: "Lorem ipsum dolor sit amet, consectet",
       code: TypeCharts.BAR.code,
-      component: <BarCharts />,
+      component: <DobleBarChart />,
     },
     {
       id: uuidv4(),
@@ -73,7 +78,7 @@ const data = {
       titleDetails: "Detalles de la gráfica",
       descriptionDetails: "Lorem ipsum dolor sit amet, consectet",
       code: TypeCharts.BAR.code,
-      component: <BarCharts />,
+      component: <CustomBarChart />,
     },
     {
       id: uuidv4(),
@@ -82,7 +87,27 @@ const data = {
       titleDetails: "Detalles de la gráfica",
       descriptionDetails: "Lorem ipsum dolor sit amet, consectet",
       code: TypeCharts.BAR.code,
-      component: <BarCharts />,
+      component: <StakedBarChart />,
+    },
+    {
+      id: uuidv4(),
+      titleChart: "Titulo de ejemplo",
+      description: "Lorem ipsum dolor sit amet, consectetur",
+      titleDetails: "Detalles de la gráfica",
+      descriptionDetails: "Lorem ipsum dolor sit amet, consectet",
+      code: TypeCharts.BAR.code,
+      component: <VerticalBarChart />,
+    },
+  ],
+  area: [
+    {
+      id: uuidv4(),
+      titleChart: "Titulo de ejemplo",
+      description: "Lorem ipsum dolor sit amet, consectetur",
+      titleDetails: "Detalles de la gráfica",
+      descriptionDetails: "Lorem ipsum dolor sit amet, consectet",
+      code: TypeCharts.AREA.code,
+      component: <StakedAreaChart />,
     },
   ],
 };
@@ -242,7 +267,7 @@ const CardChart = () => {
         justifyContent={"center"}
         alignItems={"center"}
       >
-        {data.bar.map((item, index) => {
+        {data.area.map((item, index) => {
           return (
             <Card key={item.id}>
               <CardHeader padding={2}>
@@ -290,64 +315,7 @@ const CardChart = () => {
           );
         })}
       </Stack>
-      <Divider padding={10} />
-      <Stack
-        id="lineachart"
-        direction={{ base: "column", md: "row" }}
-        spacing={5}
-        wrap={"wrap"}
-        justifyContent={"center"}
-        alignItems={"center"}
-      >
-        {data.bar.map((item, index) => {
-          return (
-            <Card key={item.id}>
-              <CardHeader padding={2}>
-                <HStack justifyContent={"space-between"}>
-                  <HStack>
-                    {" "}
-                    <FaRegChartBar />
-                    <Text>Gráfica</Text>
-                  </HStack>
-                  <ButtonGroup>
-                    <Button
-                      variant={"outline"}
-                      size={"small"}
-                      onClick={() => handleCopyCode(item.code)}
-                    >
-                      <IoMdCopy />
-                    </Button>
-                    <DrawerCodeDemostration
-                      title={item.titleChart}
-                      code={item.code}
-                      children={item.component}
-                    />
-                  </ButtonGroup>
-                </HStack>
-              </CardHeader>
-              <Divider color={"gray"} />
-              <CardBody>
-                <Box>
-                  <Heading as={"h6"} size={"sm"}>
-                    {item.titleChart}
-                  </Heading>
-                  <Text>{item.description}</Text>
-                </Box>
-                <Chart children={item.component} />
-              </CardBody>
-              <CardFooter>
-                <Box>
-                  <Heading as={"h6"} size={"sm"} fontWeight={500}>
-                    {item.titleDetails}
-                  </Heading>
-                  <Text>{item.descriptionDetails}</Text>
-                </Box>
-              </CardFooter>
-            </Card>
-          );
-        })}
-      </Stack>
-      <Box mt={10}>
+      {/* <Box mt={10}>
         <Button
           rightIcon={<TriangleUpIcon />}
           onClick={() =>
@@ -358,7 +326,7 @@ const CardChart = () => {
         >
           Volver al Inicio
         </Button>
-      </Box>
+      </Box> */}
     </Stack>
   );
 };
