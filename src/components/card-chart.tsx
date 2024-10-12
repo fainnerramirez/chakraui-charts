@@ -30,6 +30,9 @@ import { StakedBarChart } from "./Barcharts/staked-bar-chart";
 import { CustomBarChart } from "./Barcharts/custom-bar-chart";
 import { VerticalBarChart } from "./Barcharts/vertical-bar-chart";
 import { StakedAreaChart } from "./Areacharts/staked-area-chart";
+import { PieChartCustomizable } from "./PieCharts/pie-chart-customizable";
+import { Component } from "lucide-react";
+import { PercentChartArea } from "./Areacharts/percent-chart";
 
 const data = {
   presentation: [
@@ -57,8 +60,8 @@ const data = {
       description: "Lorem ipsum dolor sit amet, consectetur",
       titleDetails: "Detalles de la gráfica",
       descriptionDetails: "Lorem ipsum dolor sit amet, consectet",
-      code: TypeCharts.LINEBAR.code,
-      component: <LineBarchCharts />,
+      code: TypeCharts.PIE.code,
+      component: <PieChartCustomizable />,
     },
   ],
   bar: [
@@ -98,6 +101,15 @@ const data = {
       code: TypeCharts.BAR.code,
       component: <VerticalBarChart />,
     },
+    {
+      id: uuidv4(),
+      titleChart: "Titulo de ejemplo",
+      description: "Lorem ipsum dolor sit amet, consectetur",
+      titleDetails: "Detalles de la gráfica",
+      descriptionDetails: "Lorem ipsum dolor sit amet, consectet",
+      code: TypeCharts.BAR.code,
+      component: <LineBarchCharts />,
+    },
   ],
   area: [
     {
@@ -108,6 +120,26 @@ const data = {
       descriptionDetails: "Lorem ipsum dolor sit amet, consectet",
       code: TypeCharts.AREA.code,
       component: <StakedAreaChart />,
+    },
+    {
+      id: uuidv4(),
+      titleChart: "Titulo de ejemplo",
+      description: "Lorem ipsum dolor sit amet, consectetur",
+      titleDetails: "Detalles de la gráfica",
+      descriptionDetails: "Lorem ipsum dolor sit amet, consectet",
+      code: TypeCharts.AREA.code,
+      component: <PercentChartArea />,
+    },
+  ],
+  pie: [
+    {
+      id: uuidv4(),
+      titleChart: "Titulo de ejemplo",
+      description: "Lorem ipsum dolor sit amet, consectetur",
+      titleDetails: "Detalles de la gráfica",
+      descriptionDetails: "Lorem ipsum dolor sit amet, consectet",
+      code: TypeCharts.PIE.code,
+      component: <PieChartCustomizable />,
     },
   ],
 };
@@ -315,18 +347,63 @@ const CardChart = () => {
           );
         })}
       </Stack>
-      {/* <Box mt={10}>
-        <Button
-          rightIcon={<TriangleUpIcon />}
-          onClick={() =>
-            document
-              .getElementById("presentationchart")
-              ?.scrollIntoView({ behavior: "smooth" })
-          }
-        >
-          Volver al Inicio
-        </Button>
-      </Box> */}
+      <Divider />
+      <Stack
+        id="areachart"
+        direction={{ base: "column", md: "row" }}
+        spacing={5}
+        wrap={"wrap"}
+        justifyContent={"center"}
+        alignItems={"center"}
+      >
+        {data.pie.map((item, index) => {
+          return (
+            <Card key={item.id}>
+              <CardHeader padding={2}>
+                <HStack justifyContent={"space-between"}>
+                  <HStack>
+                    {" "}
+                    <FaRegChartBar />
+                    <Text>Gráfica</Text>
+                  </HStack>
+                  <ButtonGroup>
+                    <Button
+                      variant={"outline"}
+                      size={"small"}
+                      onClick={() => handleCopyCode(item.code)}
+                    >
+                      <IoMdCopy />
+                    </Button>
+                    <DrawerCodeDemostration
+                      title={item.titleChart}
+                      code={item.code}
+                      children={item.component}
+                    />
+                  </ButtonGroup>
+                </HStack>
+              </CardHeader>
+              <Divider color={"gray"} />
+              <CardBody>
+                <Box>
+                  <Heading as={"h6"} size={"sm"}>
+                    {item.titleChart}
+                  </Heading>
+                  <Text>{item.description}</Text>
+                </Box>
+                <Chart children={item.component} />
+              </CardBody>
+              <CardFooter>
+                <Box>
+                  <Heading as={"h6"} size={"sm"} fontWeight={500}>
+                    {item.titleDetails}
+                  </Heading>
+                  <Text>{item.descriptionDetails}</Text>
+                </Box>
+              </CardFooter>
+            </Card>
+          );
+        })}
+      </Stack>
     </Stack>
   );
 };

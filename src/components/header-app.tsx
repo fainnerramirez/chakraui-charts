@@ -6,29 +6,66 @@ import {
   Heading,
   Link,
   Text,
+  Tooltip,
 } from "@chakra-ui/react";
+import { Github, Linkedin } from "lucide-react";
+import { BsTwitterX } from "react-icons/bs";
 
 const HeaderApp = () => {
   return (
     <Box as="header" lineHeight={10} marginTop={10}>
       <Heading>Gráficos Atractívos</Heading>
       <Box>
-        <Text>
+        <Text lineHeight={5}>
           Construido con Chakra UI y Recharts , para proyectos React open source
         </Text>
       </Box>
-      <ButtonGroup>
-        <Button variant={"secondary"}>
-          <Link href="https://v2.chakra-ui.com/getting-started" isExternal>
-            Documentación de Chakra UI <ExternalLinkIcon mx="2px" />
-          </Link>
-        </Button>
-        <Button variant={"primary"}>
-          <Link href="https://recharts.org/en-US/api" isExternal>
-            Documentación de Recharts <ExternalLinkIcon mx="2px" />
-          </Link>
-        </Button>
-      </ButtonGroup>
+      <Box mt={5} display={"flex"} flexDir={"column"}>
+        <ButtonGroup>
+          <Button variant={"secondary"}>
+            <Link href="https://v2.chakra-ui.com/getting-started" isExternal>
+              Chakra UI <ExternalLinkIcon mx="2px" />
+            </Link>
+          </Button>
+          <Button variant={"primary"}>
+            <Link href="https://recharts.org/en-US/api" isExternal>
+              Recharts
+              <ExternalLinkIcon mx="2px" />
+            </Link>
+          </Button>
+        </ButtonGroup>
+        <ButtonGroup mt={5}>
+          <Tooltip label="Github">
+            <Button
+              variant={"outline"}
+              size={"sm"}
+              onClick={() => window.open("https://github.com/fainnerramirez")}
+            >
+              <Github />
+            </Button>
+          </Tooltip>
+          <Tooltip label="LinkedIn">
+            <Button
+              variant={"outline"}
+              size={"sm"}
+              onClick={() =>
+                window.open("https://www.linkedin.com/in/fainnerramirez/")
+              }
+            >
+              <Linkedin />
+            </Button>
+          </Tooltip>
+          <Tooltip label="Twitter">
+            <Button
+              variant={"outline"}
+              size={"sm"}
+              onClick={() => window.open("https://x.com/FainnerR")}
+            >
+              <BsTwitterX />
+            </Button>
+          </Tooltip>
+        </ButtonGroup>
+      </Box>
     </Box>
   );
 };

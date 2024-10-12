@@ -14,9 +14,12 @@ const ChartsOptions = () => {
       justifyContent={"flex-start"}
       alignItems={"center"}
       flexDirection={"column"}
+      flexWrap={"wrap"}
     >
       <Stack
-        direction="row"
+        display={"flex"}
+        flexDir={"row"}
+        flexWrap={"wrap"}
         spacing={4}
         align="center"
         marginTop={10}

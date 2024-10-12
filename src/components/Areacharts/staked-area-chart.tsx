@@ -10,10 +10,10 @@ import {
 import { DataChart } from "../../utils/data-charts";
 import { ColorContext } from "../../contexts/PalletteColorContext";
 
-export const StakedAreaChart = () => {
+export const StakedAreaChart = ({ isDrawer }: any) => {
   const { palletteColor } = useContext(ColorContext);
   return (
-    <AreaChart width={350} height={250} data={DataChart}>
+    <AreaChart width={isDrawer ? 600 : 350} height={250} data={DataChart}>
       <CartesianGrid strokeDasharray="3 3" />
       <XAxis dataKey="mes" />
       <Tooltip />

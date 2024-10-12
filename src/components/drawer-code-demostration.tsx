@@ -14,6 +14,7 @@ import {
   Flex,
   HStack,
   Input,
+  Link,
   useDisclosure,
   useToast,
   VStack,
@@ -22,6 +23,7 @@ import { BarCharts } from "./Barcharts/bart-chart";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { IoMdCopy } from "react-icons/io";
+import { ExternalLinkIcon } from "@chakra-ui/icons";
 
 const DrawerCodeDemostration = ({ code, children, title }: any) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -95,8 +97,13 @@ const DrawerCodeDemostration = ({ code, children, title }: any) => {
               </VStack>
             </Box>
           </DrawerBody>
-          <DrawerFooter textAlign={"center"}>
-            <Code>Hecho Por Fainner Ramirez</Code>
+          <DrawerFooter margin={"auto"}>
+            <Code>
+              Creator{" "}
+              <Link href="https://github.com/fainnerramirez" isExternal>
+                Fainner Ramirez <ExternalLinkIcon mx="2px" />
+              </Link>
+            </Code>
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
