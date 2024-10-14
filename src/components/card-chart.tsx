@@ -154,7 +154,7 @@ const CardChart = () => {
           isClosable: true,
         });
       })
-      .catch((error) => {
+      .catch(() => {
         toast({
           title: "Error al copiar código",
           status: "error",
