@@ -5,7 +5,13 @@ import { ColorContext } from "../contexts/PalletteColorContext";
 const PalletteThemeColor = () => {
   const { setPalleteColor } = useContext(ColorContext);
   return (
-    <Stack direction={"column"} spacing={3} position={"fixed"} right={280}>
+    <Stack
+      direction={"column"}
+      spacing={3}
+      position={"fixed"}
+      right={280}
+      display={{ base: "none", md: "none", lg: "inline-flex" }}
+    >
       <Tooltip label="Verde" placement="right">
         <Button
           bg={"#6A9C89"}

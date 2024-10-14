@@ -13,8 +13,13 @@ import { BsTwitterX } from "react-icons/bs";
 
 const HeaderApp = () => {
   return (
-    <Box as="header" lineHeight={10} marginTop={10}>
-      <Heading>Gráficos Atractívos</Heading>
+    <Box
+      as="header"
+      lineHeight={10}
+      width={{ base: "85%", md: "100%" }}
+      margin={"auto"}
+    >
+      <Heading mt={10}>Gráficos Atractívos</Heading>
       <Box>
         <Text lineHeight={5}>
           Construido con Chakra UI y Recharts , para proyectos React open source

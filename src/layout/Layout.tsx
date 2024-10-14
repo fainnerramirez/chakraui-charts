@@ -6,7 +6,7 @@ const Layout = ({ children }: any) => {
   return (
     <>
       <NavbarApp />
-      <Box as="main" width={"85%"} margin={"auto"}>
+      <Box as="main" width={{ base: "100%", md: "85%" }} margin={"auto"}>
         {children}
       </Box>
       <FooterApp />

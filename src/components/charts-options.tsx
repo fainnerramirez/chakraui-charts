@@ -37,13 +37,19 @@ const ChartsOptions = () => {
         <Button
           variant={"outline"}
           onClick={() => scrollToSection("lineachart")}
+          isDisabled={true}
         >
           Lineas
         </Button>
-        <Button variant={"outline"}>Circular</Button>
-        <Button variant={"outline"}>Radar</Button>
-        <Button variant={"outline"}>Radial</Button>
-        <Button variant={"outline"}>Tooltip</Button>
+        <Button variant={"outline"} isDisabled={true}>
+          Circular
+        </Button>
+        <Button variant={"outline"} isDisabled={true}>
+          Radar
+        </Button>
+        <Button variant={"outline"} isDisabled={true}>
+          Radial
+        </Button>
       </Stack>
       <HStack
         alignItems={"flex-start"}

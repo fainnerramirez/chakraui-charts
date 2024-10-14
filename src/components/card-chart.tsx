@@ -169,18 +169,10 @@ const CardChart = () => {
   };
 
   return (
-    <Stack
-      width={"100%"}
-      direction={{ base: "column", md: "row" }}
-      spacing={5}
-      wrap={"wrap"}
-      justifyContent={"center"}
-      alignItems={"center"}
-    >
+    <Stack justifyContent={"center"} alignItems={"center"}>
       <Stack
         id="presentationchart"
         direction={{ base: "column", md: "row" }}
-        spacing={5}
         wrap={"wrap"}
         justifyContent={"center"}
         alignItems={"center"}
