@@ -30,7 +30,7 @@ export const CustomBarChart = () => {
         shape={<TriangleBar />}
         label={{ position: "top" }}
       >
-        {DataChart.map((entry: any, index) => (
+        {DataChart.map((_, index) => (
           <Cell key={`cell-${index}`} fill={palletteColor} />
         ))}
       </Bar>

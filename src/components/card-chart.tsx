@@ -173,7 +173,7 @@ const CardChart = () => {
         justifyContent={"center"}
         alignItems={"center"}
       >
-        {data.presentation.map((item, index) => {
+        {data.presentation.map((item) => {
           return (
             <Card key={item.id}>
               <CardHeader padding={2}>
@@ -230,7 +230,7 @@ const CardChart = () => {
         justifyContent={"center"}
         alignItems={"center"}
       >
-        {data.bar.map((item, index) => {
+        {data.bar.map((item) => {
           return (
             <Card key={item.id}>
               <CardHeader padding={2}>
@@ -287,7 +287,7 @@ const CardChart = () => {
         justifyContent={"center"}
         alignItems={"center"}
       >
-        {data.area.map((item, index) => {
+        {data.area.map((item) => {
           return (
             <Card key={item.id}>
               <CardHeader padding={2}>
@@ -344,7 +344,7 @@ const CardChart = () => {
         justifyContent={"center"}
         alignItems={"center"}
       >
-        {data.pie.map((item, index) => {
+        {data.pie.map((item) => {
           return (
             <Card key={item.id}>
               <CardHeader padding={2}>

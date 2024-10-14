@@ -13,7 +13,7 @@ type PropsPieChart = {
   innerRadius: number;
   outerRadius: number;
   percent: number;
-  index: number;
+  index?: number;
 };
 
 const renderCustomizedLabel = ({
@@ -23,7 +23,6 @@ const renderCustomizedLabel = ({
   innerRadius,
   outerRadius,
   percent,
-  index,
 }: PropsPieChart) => {
   const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
   const x = cx + radius * Math.cos(-midAngle * RADIAN);
@@ -57,7 +56,7 @@ export const PieChartCustomizable = ({ isDrawer }: PropsChart) => {
         fill={"#ffffff"}
         dataKey="visitas"
       >
-        {DataChart.map((entry, index) => (
+        {DataChart.map((_, index) => (
           <Cell key={`cell-${index}`} fill={palletteColor} />
         ))}
       </Pie>

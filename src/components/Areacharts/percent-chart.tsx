@@ -19,7 +19,7 @@ const getPercent = (value: number, total: number) => {
   return toPercent(ratio, 2);
 };
 
-const renderTooltipContent = (o) => {
+const renderTooltipContent = (o: any) => {
   const { payload, label } = o;
   const total = payload.reduce(
     (result: number, entry: any) => result + entry.value,

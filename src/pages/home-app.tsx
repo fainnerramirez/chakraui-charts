@@ -1,6 +1,6 @@
-import { Box, Divider, Heading, Link, Stack, Text } from "@chakra-ui/react";
-import HeaderApp from "../components/header-app";
+import { Box, Stack } from "@chakra-ui/react";
 import ChartsOptions from "../components/charts-options";
+import HeaderApp from "../components/header-app";
 
 const HomeApp = () => {
   return (
