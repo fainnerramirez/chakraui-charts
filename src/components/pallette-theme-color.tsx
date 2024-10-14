@@ -1,5 +1,5 @@
 import { Button, Stack, Tooltip } from "@chakra-ui/react";
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { ColorContext } from "../contexts/PalletteColorContext";
 
 const PalletteThemeColor = () => {

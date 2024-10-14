@@ -9,30 +9,26 @@ import {
   Divider,
   Heading,
   HStack,
-  Image,
   Stack,
   Text,
   useToast,
 } from "@chakra-ui/react";
-import Chart from "./chart";
-import { BarCharts } from "./Barcharts/bart-chart";
 import { FaRegChartBar } from "react-icons/fa";
 import { IoMdCopy } from "react-icons/io";
-import DrawerCodeDemostration from "./drawer-code-demostration";
-import { AreaCharts } from "./Areacharts/area-chart";
-import { LineBarchCharts } from "./LineBarcharts/line-bar-charts";
-import { TypeCharts } from "../utils/data-charts";
 import { v4 as uuidv4 } from "uuid";
-import { ImTextColor } from "react-icons/im";
-import { TriangleUpIcon } from "@chakra-ui/icons";
+import { TypeCharts } from "../utils/data-charts";
+import { AreaCharts } from "./Areacharts/area-chart";
+import { PercentChartArea } from "./Areacharts/percent-chart";
+import { StakedAreaChart } from "./Areacharts/staked-area-chart";
+import { BarCharts } from "./Barcharts/bart-chart";
+import { CustomBarChart } from "./Barcharts/custom-bar-chart";
 import { DobleBarChart } from "./Barcharts/doble-bar-chart";
 import { StakedBarChart } from "./Barcharts/staked-bar-chart";
-import { CustomBarChart } from "./Barcharts/custom-bar-chart";
 import { VerticalBarChart } from "./Barcharts/vertical-bar-chart";
-import { StakedAreaChart } from "./Areacharts/staked-area-chart";
+import Chart from "./chart";
+import DrawerCodeDemostration from "./drawer-code-demostration";
+import { LineBarchCharts } from "./LineBarcharts/line-bar-charts";
 import { PieChartCustomizable } from "./PieCharts/pie-chart-customizable";
-import { Component } from "lucide-react";
-import { PercentChartArea } from "./Areacharts/percent-chart";
 
 const data = {
   presentation: [

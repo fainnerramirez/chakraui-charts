@@ -1,10 +1,17 @@
-import { useColorModeValue } from "@chakra-ui/react";
 import React, { useEffect } from "react";
 
-export const ColorContext = React.createContext({});
+type typeColorContext = {
+  palletteColor: string;
+  setPalleteColor: Function;
+};
+
+export const ColorContext = React.createContext<typeColorContext>({
+  palletteColor: "",
+  setPalleteColor: () => {},
+});
 
 const PalletteColorContext = ({ children }: any) => {
-  const [palletteColor, setPalleteColor] = React.useState("#000000");
+  const [palletteColor, setPalleteColor] = React.useState<string>("#000000");
 
   useEffect(() => {
     localStorage.setItem("palletteColor", palletteColor);

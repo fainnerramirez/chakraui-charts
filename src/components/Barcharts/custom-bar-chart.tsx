@@ -1,11 +1,9 @@
-import React, { useContext } from "react";
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid } from "recharts";
-import { DataChart } from "../../utils/data-charts";
+import { useContext } from "react";
+import { Bar, BarChart, Cell, XAxis } from "recharts";
 import { ColorContext } from "../../contexts/PalletteColorContext";
+import { DataChart } from "../../utils/data-charts";
 
-const colors = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "red", "pink"];
-
-const getPath = (x, y, width, height) => {
+const getPath = (x: number, y: number, width: number, height: number) => {
   return `M${x},${y + height}C${x + width / 3},${y + height} ${x + width / 2},${
     y + height / 3
   }
@@ -32,7 +30,7 @@ export const CustomBarChart = () => {
         shape={<TriangleBar />}
         label={{ position: "top" }}
       >
-        {DataChart.map((entry, index) => (
+        {DataChart.map((entry: any, index) => (
           <Cell key={`cell-${index}`} fill={palletteColor} />
         ))}
       </Bar>

@@ -1,20 +1,18 @@
+import { useContext } from "react";
 import {
-  ComposedChart,
-  Line,
   Area,
   Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
+  ComposedChart,
+  Line,
   Scatter,
+  Tooltip,
+  XAxis,
 } from "recharts";
-import { DataChart } from "../../utils/data-charts";
-import { useContext } from "react";
 import { ColorContext } from "../../contexts/PalletteColorContext";
+import { PropsChart } from "../../types/PropsCharts";
+import { DataChart } from "../../utils/data-charts";
 
-export const LineBarchCharts = ({ isDrawer }: any) => {
+export const LineBarchCharts = ({ isDrawer }: PropsChart) => {
   const { palletteColor } = useContext(ColorContext);
 
   return (

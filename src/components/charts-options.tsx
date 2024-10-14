@@ -1,4 +1,4 @@
-import { Box, Button, ButtonGroup, HStack, Stack } from "@chakra-ui/react";
+import { Box, Button, HStack, Stack } from "@chakra-ui/react";
 import CardChart from "./card-chart";
 import PalletteThemeColor from "./pallette-theme-color";
 

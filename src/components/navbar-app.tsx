@@ -1,24 +1,14 @@
+import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import {
   Box,
-  Flex,
-  Avatar,
-  Text,
   Button,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuDivider,
-  useDisclosure,
-  useColorModeValue,
-  Stack,
-  useColorMode,
-  Center,
+  Flex,
   Heading,
   HStack,
+  Stack,
+  useColorMode,
+  useColorModeValue,
 } from "@chakra-ui/react";
-import { MoonIcon, SunIcon } from "@chakra-ui/icons";
-import { IoMdCopy } from "react-icons/io";
 import { FaRegChartBar } from "react-icons/fa";
 
 export default function NavbarApp() {

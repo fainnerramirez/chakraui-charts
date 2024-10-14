@@ -1,19 +1,19 @@
-import React, { PureComponent, useContext } from "react";
+import { useContext } from "react";
 import {
-  AreaChart,
   Area,
-  XAxis,
-  YAxis,
+  AreaChart,
   CartesianGrid,
   Tooltip,
-  ResponsiveContainer,
+  XAxis,
+  YAxis,
 } from "recharts";
-import { DataChart } from "../../utils/data-charts";
 import { ColorContext } from "../../contexts/PalletteColorContext";
+import { DataChart } from "../../utils/data-charts";
 
-const toPercent = (decimal, fixed = 0) => `${(decimal * 100).toFixed(fixed)}%`;
+const toPercent = (decimal: number, fixed = 0) =>
+  `${(decimal * 100).toFixed(fixed)}%`;
 
-const getPercent = (value, total) => {
+const getPercent = (value: number, total: number) => {
   const ratio = total > 0 ? value / total : 0;
 
   return toPercent(ratio, 2);
@@ -21,13 +21,16 @@ const getPercent = (value, total) => {
 
 const renderTooltipContent = (o) => {
   const { payload, label } = o;
-  const total = payload.reduce((result, entry) => result + entry.value, 0);
+  const total = payload.reduce(
+    (result: number, entry: any) => result + entry.value,
+    0
+  );
 
   return (
     <div className="customized-tooltip-content">
       <p className="total">{`${label} (Total: ${total})`}</p>
       <ul className="list">
-        {payload.map((entry, index) => (
+        {payload.map((entry: any, index: number) => (
           <li key={`item-${index}`} style={{ color: entry.color }}>
             {`${entry.name}: ${entry.value}(${getPercent(entry.value, total)})`}
           </li>

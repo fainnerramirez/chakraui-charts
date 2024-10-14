@@ -1,17 +1,10 @@
-import {
-  AreaChart,
-  Area,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-} from "recharts";
-import { DataChart } from "../../utils/data-charts";
 import { useContext } from "react";
+import { Area, AreaChart, Tooltip, XAxis } from "recharts";
 import { ColorContext } from "../../contexts/PalletteColorContext";
+import { PropsChart } from "../../types/PropsCharts";
+import { DataChart } from "../../utils/data-charts";
 
-export const AreaCharts = ({ isDrawer }: any) => {
+export const AreaCharts = ({ isDrawer }: PropsChart) => {
   const { palletteColor } = useContext(ColorContext);
 
   return (

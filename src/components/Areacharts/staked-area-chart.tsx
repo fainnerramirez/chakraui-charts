@@ -1,14 +1,7 @@
-import React, { PureComponent, useContext } from "react";
-import {
-  AreaChart,
-  Area,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-} from "recharts";
-import { DataChart } from "../../utils/data-charts";
+import { useContext } from "react";
+import { Area, AreaChart, CartesianGrid, Tooltip, XAxis } from "recharts";
 import { ColorContext } from "../../contexts/PalletteColorContext";
+import { DataChart } from "../../utils/data-charts";
 
 export const StakedAreaChart = ({ isDrawer }: any) => {
   const { palletteColor } = useContext(ColorContext);

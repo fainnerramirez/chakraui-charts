@@ -1,39 +1,11 @@
-import {
-  Card,
-  CardBody,
-  CardFooter,
-  CardHeader,
-  Divider,
-  Flex,
-  Heading,
-  StepSeparator,
-  Text,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import { useColorModeValue } from "@chakra-ui/react";
 import { useContext } from "react";
-import {
-  BarChart,
-  Bar,
-  ResponsiveContainer,
-  Tooltip,
-  Legend,
-  PieChart,
-  Pie,
-  Cell,
-  Label,
-  CartesianGrid,
-  XAxis,
-  YAxis,
-  Rectangle,
-} from "recharts";
-import PalletteColorContext, {
-  ColorContext,
-} from "../../contexts/PalletteColorContext";
+import { Bar, BarChart, Tooltip, XAxis } from "recharts";
+import { ColorContext } from "../../contexts/PalletteColorContext";
+import { PropsChart } from "../../types/PropsCharts";
 import { DataChart } from "../../utils/data-charts";
 
-export const BarCharts = (props: any) => {
-  const { isDrawer } = props;
-  const color = useColorModeValue("#000000", "white");
+export const BarCharts = ({ isDrawer }: PropsChart) => {
   const tooltipColor = useColorModeValue("#000000", "white");
   const tooltipBg = useColorModeValue("#ffffff", "gray");
   const { palletteColor } = useContext(ColorContext);

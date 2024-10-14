@@ -1,3 +1,4 @@
+import { ExternalLinkIcon } from "@chakra-ui/icons";
 import {
   Box,
   Button,
@@ -12,20 +13,21 @@ import {
   DrawerHeader,
   DrawerOverlay,
   Flex,
-  HStack,
-  Input,
   Link,
   useDisclosure,
   useToast,
   VStack,
 } from "@chakra-ui/react";
-import { BarCharts } from "./Barcharts/bart-chart";
+import { IoMdCopy } from "react-icons/io";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import { IoMdCopy } from "react-icons/io";
-import { ExternalLinkIcon } from "@chakra-ui/icons";
+import { PropsDrawerChart } from "../types/PropsCharts";
 
-const DrawerCodeDemostration = ({ code, children, title }: any) => {
+const DrawerCodeDemostration = ({
+  code,
+  children,
+  title,
+}: PropsDrawerChart) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const toast = useToast();
 

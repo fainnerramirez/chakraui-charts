@@ -1,24 +1,26 @@
-import React, { PureComponent, useContext } from "react";
+import { useContext } from "react";
 import {
-  ComposedChart,
-  Line,
   Area,
   Bar,
+  CartesianGrid,
+  ComposedChart,
+  Legend,
+  Line,
+  Tooltip,
   XAxis,
   YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
 } from "recharts";
-import { DataChart } from "../../utils/data-charts";
 import { ColorContext } from "../../contexts/PalletteColorContext";
+import { PropsChart } from "../../types/PropsCharts";
+import { DataChart } from "../../utils/data-charts";
 
-export const VerticalBarChart = () => {
+export const VerticalBarChart = ({ isDrawer }: PropsChart) => {
   const { palletteColor } = useContext(ColorContext);
+
   return (
     <ComposedChart
       layout="vertical"
-      width={350}
+      width={isDrawer ? 600 : 350}
       height={250}
       data={DataChart}
       margin={{

@@ -1,16 +1,21 @@
-import {
-  PieChart,
-  Pie,
-  Sector,
-  Cell,
-  ResponsiveContainer,
-  Tooltip,
-} from "recharts";
-import { DataChart, DataChartPie } from "../../utils/data-charts";
-import { ColorContext } from "../../contexts/PalletteColorContext";
 import { useContext } from "react";
+import { Cell, Pie, PieChart, Tooltip } from "recharts";
+import { ColorContext } from "../../contexts/PalletteColorContext";
+import { PropsChart } from "../../types/PropsCharts";
+import { DataChart, DataChartPie } from "../../utils/data-charts";
 
 const RADIAN = Math.PI / 180;
+
+type PropsPieChart = {
+  cx: number;
+  cy: number;
+  midAngle: number;
+  innerRadius: number;
+  outerRadius: number;
+  percent: number;
+  index: number;
+};
+
 const renderCustomizedLabel = ({
   cx,
   cy,
@@ -19,7 +24,7 @@ const renderCustomizedLabel = ({
   outerRadius,
   percent,
   index,
-}) => {
+}: PropsPieChart) => {
   const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
   const x = cx + radius * Math.cos(-midAngle * RADIAN);
   const y = cy + radius * Math.sin(-midAngle * RADIAN);
@@ -37,7 +42,7 @@ const renderCustomizedLabel = ({
   );
 };
 
-export const PieChartCustomizable = ({ isDrawer }: any) => {
+export const PieChartCustomizable = ({ isDrawer }: PropsChart) => {
   const { palletteColor } = useContext(ColorContext);
 
   return (
