@@ -8,6 +8,17 @@ type DataChartType = {
   data2: number;
 };
 
+type CodeType = {
+  code: string;
+};
+
+type TypeCharts = {
+  BAR: CodeType;
+  LINEBAR: CodeType;
+  AREA: CodeType;
+  PIE: CodeType;
+};
+
 export const DataChart: DataChartType[] = [
   { mes: "Ene", data: getRamdom(), data2: getRamdom() },
   { mes: "Feb", data: getRamdom(), data2: getRamdom() },
@@ -31,7 +42,7 @@ export const DataChartPie: Omit<DataChartType, "data2">[] = [
   { mes: "May", data: getRamdom() },
 ];
 
-export const TypeCharts = {
+export const TypeCharts: TypeCharts = {
   BAR: {
     code: `import {
   Card,
