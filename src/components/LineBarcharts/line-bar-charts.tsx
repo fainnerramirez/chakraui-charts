@@ -12,7 +12,7 @@ import { ColorContext } from "../../contexts/PalletteColorContext";
 import { PropsChart } from "../../types/PropsCharts";
 import { DataChart } from "../../utils/data-charts";
 
-export const LineBarchCharts = ({ isDrawer }: PropsChart) => {
+export const LineBarchCharts: React.FC<PropsChart> = ({ isDrawer }) => {
   const { palletteColor } = useContext(ColorContext);
 
   return (
@@ -21,13 +21,13 @@ export const LineBarchCharts = ({ isDrawer }: PropsChart) => {
       <Tooltip />
       <Area
         type="monotone"
-        dataKey="visitas"
+        dataKey="data"
         fill={palletteColor}
         stroke={palletteColor}
       />
-      <Bar dataKey="visitas" barSize={20} fill={palletteColor} radius={8} />
-      <Line type="monotone" dataKey="visitas" stroke={palletteColor} />
-      <Scatter dataKey="visitas" fill={"#CBD5E0"} />
+      <Bar dataKey="data" barSize={20} fill={palletteColor} radius={8} />
+      <Line type="monotone" dataKey="data" stroke={palletteColor} />
+      <Scatter dataKey="data" fill={"#CBD5E0"} />
     </ComposedChart>
   );
 };

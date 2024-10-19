@@ -8,6 +8,7 @@ import {
   YAxis,
 } from "recharts";
 import { ColorContext } from "../../contexts/PalletteColorContext";
+import { PropsChart } from "../../types/PropsCharts";
 import { DataChart } from "../../utils/data-charts";
 
 const toPercent = (decimal: number, fixed = 0) =>
@@ -40,7 +41,7 @@ const renderTooltipContent = (o: any) => {
   );
 };
 
-export const PercentChartArea = ({ isDrawer }: any) => {
+export const PercentChartArea: React.FC<PropsChart> = ({ isDrawer }) => {
   const { palletteColor } = useContext(ColorContext);
 
   return (
@@ -56,21 +57,21 @@ export const PercentChartArea = ({ isDrawer }: any) => {
       <Tooltip content={renderTooltipContent} />
       <Area
         type="monotone"
-        dataKey="visitas"
+        dataKey="data"
         stackId="1"
         stroke="#8884d8"
         fill={palletteColor}
       />
       <Area
         type="monotone"
-        dataKey="visitas2"
+        dataKey="data2"
         stackId="1"
         stroke="#82ca9d"
         fill="#82ca9d"
       />
       <Area
         type="monotone"
-        dataKey="visitas"
+        dataKey="data"
         stackId="1"
         stroke="#ffc658"
         fill="#ffc658"

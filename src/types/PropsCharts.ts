@@ -8,4 +8,8 @@ type PropsDrawerChart = {
   title: string;
 };
 
-export type { PropsChart, PropsDrawerChart };
+type PropsChildren = {
+  children: React.ReactNode;
+};
+
+export type { PropsChart, PropsChildren, PropsDrawerChart };

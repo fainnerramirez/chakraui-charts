@@ -11,7 +11,7 @@ import {
 import { Github, Linkedin } from "lucide-react";
 import { BsTwitterX } from "react-icons/bs";
 
-const HeaderApp = () => {
+const HeaderApp: React.FC = () => {
   return (
     <Box
       as="header"

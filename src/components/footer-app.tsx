@@ -1,7 +1,7 @@
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import { Heading, HStack, Link } from "@chakra-ui/react";
 
-const FooterApp = () => {
+const FooterApp: React.FC = () => {
   return (
     <HStack
       marginTop={20}

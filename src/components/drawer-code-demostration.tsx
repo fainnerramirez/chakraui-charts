@@ -18,16 +18,17 @@ import {
   useToast,
   VStack,
 } from "@chakra-ui/react";
+import React from "react";
 import { IoMdCopy } from "react-icons/io";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { PropsDrawerChart } from "../types/PropsCharts";
 
-const DrawerCodeDemostration = ({
+const DrawerCodeDemostration: React.FC<PropsDrawerChart> = ({
   code,
   children,
   title,
-}: PropsDrawerChart) => {
+}) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const toast = useToast();
 

@@ -2,7 +2,7 @@ import { Box, Stack } from "@chakra-ui/react";
 import ChartsOptions from "../components/charts-options";
 import HeaderApp from "../components/header-app";
 
-const HomeApp = () => {
+const HomeApp: React.FC = () => {
   return (
     <Box>
       <HeaderApp />

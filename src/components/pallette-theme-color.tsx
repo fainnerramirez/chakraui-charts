@@ -2,7 +2,7 @@ import { Button, Stack, Tooltip } from "@chakra-ui/react";
 import { useContext } from "react";
 import { ColorContext } from "../contexts/PalletteColorContext";
 
-const PalletteThemeColor = () => {
+const PalletteThemeColor: React.FC = () => {
   const { setPalleteColor } = useContext(ColorContext);
   return (
     <Stack

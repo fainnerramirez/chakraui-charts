@@ -44,18 +44,18 @@ const getRamdom = () => {
 };
 
 const data = [
-  { mes: "Ene", visitas: getRamdom() },
-  { mes: "Feb", visitas: getRamdom() },
-  { mes: "Mar", visitas: getRamdom() },
-  { mes: "Abr", visitas: getRamdom() },
-  { mes: "May", visitas: getRamdom() },
-  { mes: "Jun", visitas: getRamdom() },
-  { mes: "Jul", visitas: getRamdom() },
-  { mes: "Ago", visitas: getRamdom() },
-  { mes: "Sep", visitas: getRamdom() },
-  { mes: "Oct", visitas: getRamdom() },
-  { mes: "Nov", visitas: getRamdom() },
-  { mes: "Dic", visitas: getRamdom() },
+  { mes: "Ene", data: getRamdom() },
+  { mes: "Feb", data: getRamdom() },
+  { mes: "Mar", data: getRamdom() },
+  { mes: "Abr", data: getRamdom() },
+  { mes: "May", data: getRamdom() },
+  { mes: "Jun", data: getRamdom() },
+  { mes: "Jul", data: getRamdom() },
+  { mes: "Ago", data: getRamdom() },
+  { mes: "Sep", data: getRamdom() },
+  { mes: "Oct", data: getRamdom() },
+  { mes: "Nov", data: getRamdom() },
+  { mes: "Dic", data: getRamdom() },
 ];
 
 const COLORS = [
@@ -84,7 +84,7 @@ export const BarCharts = () => {
       <Card bg={useColorModeValue("gray.50", "gray.900")}>
         <CardHeader>
           <Heading as="h2" size={"md"} textAlign={"center"}>
-            Visitas Mensuales
+            data Mensuales
           </Heading>
         </CardHeader>
         <CardBody>
@@ -100,7 +100,7 @@ export const BarCharts = () => {
             <Tooltip />
             <Legend />
             <Bar
-              dataKey="visitas"
+              dataKey="data"
               fill={COLORS[Math.floor(Math.random() * COLORS.length)]}
               strokeWidth={2}
               radius={8}
@@ -110,7 +110,7 @@ export const BarCharts = () => {
         <Divider />
         <CardFooter width={"100%"}>
           <Text textAlign={"center"} width={"100%"}>
-            Resumen mensual del número de visitas de tus publicaciones en
+            Resumen mensual del número de data de tus publicaciones en
             Unipensiones
           </Text>
         </CardFooter>

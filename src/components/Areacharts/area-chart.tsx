@@ -4,7 +4,7 @@ import { ColorContext } from "../../contexts/PalletteColorContext";
 import { PropsChart } from "../../types/PropsCharts";
 import { DataChart } from "../../utils/data-charts";
 
-export const AreaCharts = ({ isDrawer }: PropsChart) => {
+export const AreaCharts: React.FC<PropsChart> = ({ isDrawer }) => {
   const { palletteColor } = useContext(ColorContext);
 
   return (
@@ -18,7 +18,7 @@ export const AreaCharts = ({ isDrawer }: PropsChart) => {
       <Tooltip />
       <Area
         type="monotone"
-        dataKey="visitas"
+        dataKey="data"
         stroke={palletteColor}
         fill={palletteColor}
       />

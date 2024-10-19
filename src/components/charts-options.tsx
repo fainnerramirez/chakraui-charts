@@ -1,8 +1,9 @@
 import { Box, Button, HStack, Stack } from "@chakra-ui/react";
+import React from "react";
 import CardChart from "./card-chart";
 import PalletteThemeColor from "./pallette-theme-color";
 
-const ChartsOptions = () => {
+const ChartsOptions: React.FC = () => {
   const scrollToSection = (section: string) => {
     document.getElementById(section)?.scrollIntoView({ behavior: "smooth" });
   };

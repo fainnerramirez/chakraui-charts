@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { FaRegChartBar } from "react-icons/fa";
 
-export default function NavbarApp() {
+export const NavbarApp: React.FC = () => {
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
@@ -43,4 +43,4 @@ export default function NavbarApp() {
       </Box>
     </>
   );
-}
+};

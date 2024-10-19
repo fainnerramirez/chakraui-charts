@@ -41,7 +41,7 @@ const renderCustomizedLabel = ({
   );
 };
 
-export const PieChartCustomizable = ({ isDrawer }: PropsChart) => {
+export const PieChartCustomizable: React.FC<PropsChart> = ({ isDrawer }) => {
   const { palletteColor } = useContext(ColorContext);
 
   return (
@@ -54,7 +54,7 @@ export const PieChartCustomizable = ({ isDrawer }: PropsChart) => {
         label={renderCustomizedLabel}
         outerRadius={80}
         fill={"#ffffff"}
-        dataKey="visitas"
+        dataKey="data"
       >
         {DataChart.map((_, index) => (
           <Cell key={`cell-${index}`} fill={palletteColor} />

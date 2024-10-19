@@ -1,28 +1,34 @@
-const getRamdom = () => {
+const getRamdom = (): number => {
   return Math.floor(Math.random() * 10000);
 };
 
-export const DataChart = [
-  { mes: "Ene", visitas: getRamdom(), visitas2: getRamdom() },
-  { mes: "Feb", visitas: getRamdom(), visitas2: getRamdom() },
-  { mes: "Mar", visitas: getRamdom(), visitas2: getRamdom() },
-  { mes: "Abr", visitas: getRamdom(), visitas2: getRamdom() },
-  { mes: "May", visitas: getRamdom(), visitas2: getRamdom() },
-  { mes: "Jun", visitas: getRamdom(), visitas2: getRamdom() },
-  { mes: "Jul", visitas: getRamdom(), visitas2: getRamdom() },
-  { mes: "Ago", visitas: getRamdom(), visitas2: getRamdom() },
-  { mes: "Sep", visitas: getRamdom(), visitas2: getRamdom() },
-  { mes: "Oct", visitas: getRamdom(), visitas2: getRamdom() },
-  { mes: "Nov", visitas: getRamdom(), visitas2: getRamdom() },
-  { mes: "Dic", visitas: getRamdom(), visitas2: getRamdom() },
+type DataChartType = {
+  mes: string;
+  data: number;
+  data2: number;
+};
+
+export const DataChart: DataChartType[] = [
+  { mes: "Ene", data: getRamdom(), data2: getRamdom() },
+  { mes: "Feb", data: getRamdom(), data2: getRamdom() },
+  { mes: "Mar", data: getRamdom(), data2: getRamdom() },
+  { mes: "Abr", data: getRamdom(), data2: getRamdom() },
+  { mes: "May", data: getRamdom(), data2: getRamdom() },
+  { mes: "Jun", data: getRamdom(), data2: getRamdom() },
+  { mes: "Jul", data: getRamdom(), data2: getRamdom() },
+  { mes: "Ago", data: getRamdom(), data2: getRamdom() },
+  { mes: "Sep", data: getRamdom(), data2: getRamdom() },
+  { mes: "Oct", data: getRamdom(), data2: getRamdom() },
+  { mes: "Nov", data: getRamdom(), data2: getRamdom() },
+  { mes: "Dic", data: getRamdom(), data2: getRamdom() },
 ];
 
-export const DataChartPie = [
-  { mes: "Ene", visitas: getRamdom() },
-  { mes: "Feb", visitas: getRamdom() },
-  { mes: "Mar", visitas: getRamdom() },
-  { mes: "Abr", visitas: getRamdom() },
-  { mes: "May", visitas: getRamdom() },
+export const DataChartPie: Omit<DataChartType, "data2">[] = [
+  { mes: "Ene", data: getRamdom() },
+  { mes: "Feb", data: getRamdom() },
+  { mes: "Mar", data: getRamdom() },
+  { mes: "Abr", data: getRamdom() },
+  { mes: "May", data: getRamdom() },
 ];
 
 export const TypeCharts = {
@@ -61,18 +67,18 @@ const getRamdom = () => {
 };
 
 const data = [
-  { mes: "Ene", visitas: getRamdom() },
-  { mes: "Feb", visitas: getRamdom() },
-  { mes: "Mar", visitas: getRamdom() },
-  { mes: "Abr", visitas: getRamdom() },
-  { mes: "May", visitas: getRamdom() },
-  { mes: "Jun", visitas: getRamdom() },
-  { mes: "Jul", visitas: getRamdom() },
-  { mes: "Ago", visitas: getRamdom() },
-  { mes: "Sep", visitas: getRamdom() },
-  { mes: "Oct", visitas: getRamdom() },
-  { mes: "Nov", visitas: getRamdom() },
-  { mes: "Dic", visitas: getRamdom() },
+  { mes: "Ene", data: getRamdom() },
+  { mes: "Feb", data: getRamdom() },
+  { mes: "Mar", data: getRamdom() },
+  { mes: "Abr", data: getRamdom() },
+  { mes: "May", data: getRamdom() },
+  { mes: "Jun", data: getRamdom() },
+  { mes: "Jul", data: getRamdom() },
+  { mes: "Ago", data: getRamdom() },
+  { mes: "Sep", data: getRamdom() },
+  { mes: "Oct", data: getRamdom() },
+  { mes: "Nov", data: getRamdom() },
+  { mes: "Dic", data: getRamdom() },
 ];
 
 const COLORS = [
@@ -101,7 +107,7 @@ export const BarCharts = () => {
       <Card bg={useColorModeValue("gray.50", "gray.900")}>
         <CardHeader>
           <Heading as="h2" size={"md"} textAlign={"center"}>
-            Visitas Mensuales
+            data Mensuales
           </Heading>
         </CardHeader>
         <CardBody>
@@ -109,7 +115,7 @@ export const BarCharts = () => {
             <YAxis />
             <Tooltip />
             <Bar
-              dataKey="visitas"
+              dataKey="data"
               fill={COLORS[Math.floor(Math.random() * COLORS.length)]}
               strokeWidth={2}
               radius={8}
@@ -119,7 +125,7 @@ export const BarCharts = () => {
         <Divider />
         <CardFooter width={"100%"}>
           <Text textAlign={"center"} width={"100%"}>
-            Resumen mensual del número de visitas de tus publicaciones en
+            Resumen mensual del número de data de tus publicaciones en
             Unipensiones
           </Text>
         </CardFooter>
@@ -144,18 +150,18 @@ export const BarCharts = () => {
 } from "recharts";
 
 export const DataChart = [
-  { mes: "Ene", visitas: getRamdom() },
-  { mes: "Feb", visitas: getRamdom() },
-  { mes: "Mar", visitas: getRamdom() },
-  { mes: "Abr", visitas: getRamdom() },
-  { mes: "May", visitas: getRamdom() },
-  { mes: "Jun", visitas: getRamdom() },
-  { mes: "Jul", visitas: getRamdom() },
-  { mes: "Ago", visitas: getRamdom() },
-  { mes: "Sep", visitas: getRamdom() },
-  { mes: "Oct", visitas: getRamdom() },
-  { mes: "Nov", visitas: getRamdom() },
-  { mes: "Dic", visitas: getRamdom() },
+  { mes: "Ene", data: getRamdom() },
+  { mes: "Feb", data: getRamdom() },
+  { mes: "Mar", data: getRamdom() },
+  { mes: "Abr", data: getRamdom() },
+  { mes: "May", data: getRamdom() },
+  { mes: "Jun", data: getRamdom() },
+  { mes: "Jul", data: getRamdom() },
+  { mes: "Ago", data: getRamdom() },
+  { mes: "Sep", data: getRamdom() },
+  { mes: "Oct", data: getRamdom() },
+  { mes: "Nov", data: getRamdom() },
+  { mes: "Dic", data: getRamdom() },
 ];
 
 export const LineBarchCharts = ({ isDrawer }: any) => {
@@ -166,13 +172,13 @@ export const LineBarchCharts = ({ isDrawer }: any) => {
       <Tooltip />
       <Area
         type="monotone"
-        dataKey="visitas"
+        dataKey="data"
         fill={"#000000"}
         stroke={"#000000"}
       />
-      <Bar dataKey="visitas" barSize={20} fill={"#000000"} radius={8} />
-      <Line type="monotone" dataKey="visitas" stroke={"#000000"} />
-      <Scatter dataKey="visitas" fill={"#CBD5E0"} />
+      <Bar dataKey="data" barSize={20} fill={"#000000"} radius={8} />
+      <Line type="monotone" dataKey="data" stroke={"#000000"} />
+      <Scatter dataKey="data" fill={"#CBD5E0"} />
     </ComposedChart>
   );
 };
@@ -203,7 +209,7 @@ export const AreaCharts = ({ isDrawer }: any) => {
       <Tooltip />
       <Area
         type="monotone"
-        dataKey="visitas"
+        dataKey="data"
         stroke={"#000000"}
         fill={"#000000"}
       />
@@ -268,7 +274,7 @@ export const PieChartCustomizable = () => {
         label={renderCustomizedLabel}
         outerRadius={80}
         fill="#8884d8"
-        dataKey="visitas1"
+        dataKey="data1"
       >
         {data.map((entry, index) => (
           <Cell key={index} fill={palletteColor} />

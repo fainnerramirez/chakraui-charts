@@ -14,7 +14,7 @@ import { ColorContext } from "../../contexts/PalletteColorContext";
 import { PropsChart } from "../../types/PropsCharts";
 import { DataChart } from "../../utils/data-charts";
 
-export const VerticalBarChart = ({ isDrawer }: PropsChart) => {
+export const VerticalBarChart: React.FC<PropsChart> = ({ isDrawer }) => {
   const { palletteColor } = useContext(ColorContext);
 
   return (
@@ -35,9 +35,9 @@ export const VerticalBarChart = ({ isDrawer }: PropsChart) => {
       <YAxis dataKey="mes" type="category" scale="band" />
       <Tooltip />
       <Legend />
-      <Area dataKey="visitas" fill="#8884d8" stroke="#8884d8" />
-      <Bar dataKey="visitas" barSize={20} fill={palletteColor} />
-      <Line dataKey="visitas2" stroke={palletteColor} />
+      <Area dataKey="data" fill="#8884d8" stroke="#8884d8" />
+      <Bar dataKey="data" barSize={20} fill={palletteColor} />
+      <Line dataKey="data2" stroke={palletteColor} />
     </ComposedChart>
   );
 };
