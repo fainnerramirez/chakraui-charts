@@ -16,8 +16,8 @@ import {
 import { FaRegChartBar } from "react-icons/fa";
 import { IoMdCopy } from "react-icons/io";
 import { v4 as uuidv4 } from "uuid";
-import { TypeCharts } from "../utils/data-charts";
-import { AreaCharts } from "./Areacharts/area-chart";
+import { TypeChartsData } from "../types/PropsCharts";
+import { DataCode } from "../utils/data-charts";
 import { PercentChartArea } from "./Areacharts/percent-chart";
 import { StakedAreaChart } from "./Areacharts/staked-area-chart";
 import { BarCharts } from "./Barcharts/bart-chart";
@@ -30,44 +30,46 @@ import DrawerCodeDemostration from "./drawer-code-demostration";
 import { LineBarchCharts } from "./LineBarcharts/line-bar-charts";
 import { PieChartCustomizable } from "./PieCharts/pie-chart-customizable";
 
-const data = {
-  presentation: [
+const { BAR, AREA, LINEBAR, PIE } = DataCode;
+
+const data: TypeChartsData = {
+  PRESENTATION: [
     {
       id: uuidv4(),
-      titleChart: "Titulo de ejemplo",
+      titleChart: BAR.barSimple.data.nameChart,
       description: "Lorem ipsum dolor sit amet, consectetur",
       titleDetails: "Detalles de la gráfica",
       descriptionDetails: "Lorem ipsum dolor sit amet, consectet",
-      code: TypeCharts.BAR.code,
       component: <BarCharts />,
+      code: BAR.barSimple.data.code,
     },
     {
       id: uuidv4(),
-      titleChart: "Titulo de ejemplo",
+      titleChart: BAR.barDoble.data.nameChart,
       description: "Lorem ipsum dolor sit amet, consectetur",
       titleDetails: "Detalles de la gráfica",
       descriptionDetails: "Lorem ipsum dolor sit amet, consectet",
-      code: TypeCharts.AREA.code,
-      component: <AreaCharts />,
+      code: BAR.barDoble.data.code,
+      component: <PercentChartArea />,
     },
     {
       id: uuidv4(),
-      titleChart: "Titulo de ejemplo",
+      titleChart: AREA.barSimple.data.nameChart,
       description: "Lorem ipsum dolor sit amet, consectetur",
       titleDetails: "Detalles de la gráfica",
       descriptionDetails: "Lorem ipsum dolor sit amet, consectet",
-      code: TypeCharts.PIE.code,
+      code: AREA.barSimple.data.code,
       component: <PieChartCustomizable />,
     },
   ],
-  bar: [
+  BAR: [
     {
       id: uuidv4(),
       titleChart: "Titulo de ejemplo",
       description: "Lorem ipsum dolor sit amet, consectetur",
       titleDetails: "Detalles de la gráfica",
       descriptionDetails: "Lorem ipsum dolor sit amet, consectet",
-      code: TypeCharts.BAR.code,
+      code: "TypeCharts.BAR.code",
       component: <DobleBarChart />,
     },
     {
@@ -76,7 +78,7 @@ const data = {
       description: "Lorem ipsum dolor sit amet, consectetur",
       titleDetails: "Detalles de la gráfica",
       descriptionDetails: "Lorem ipsum dolor sit amet, consectet",
-      code: TypeCharts.BAR.code,
+      code: "TypeCharts.BAR.code",
       component: <CustomBarChart />,
     },
     {
@@ -85,7 +87,7 @@ const data = {
       description: "Lorem ipsum dolor sit amet, consectetur",
       titleDetails: "Detalles de la gráfica",
       descriptionDetails: "Lorem ipsum dolor sit amet, consectet",
-      code: TypeCharts.BAR.code,
+      code: "TypeCharts.BAR.code",
       component: <StakedBarChart />,
     },
     {
@@ -94,7 +96,7 @@ const data = {
       description: "Lorem ipsum dolor sit amet, consectetur",
       titleDetails: "Detalles de la gráfica",
       descriptionDetails: "Lorem ipsum dolor sit amet, consectet",
-      code: TypeCharts.BAR.code,
+      code: "TypeCharts.BAR.code",
       component: <VerticalBarChart />,
     },
     {
@@ -103,18 +105,18 @@ const data = {
       description: "Lorem ipsum dolor sit amet, consectetur",
       titleDetails: "Detalles de la gráfica",
       descriptionDetails: "Lorem ipsum dolor sit amet, consectet",
-      code: TypeCharts.BAR.code,
+      code: "TypeCharts.BAR.code",
       component: <LineBarchCharts />,
     },
   ],
-  area: [
+  AREA: [
     {
       id: uuidv4(),
       titleChart: "Titulo de ejemplo",
       description: "Lorem ipsum dolor sit amet, consectetur",
       titleDetails: "Detalles de la gráfica",
       descriptionDetails: "Lorem ipsum dolor sit amet, consectet",
-      code: TypeCharts.AREA.code,
+      code: "TypeCharts.AREA.code",
       component: <StakedAreaChart />,
     },
     {
@@ -123,19 +125,30 @@ const data = {
       description: "Lorem ipsum dolor sit amet, consectetur",
       titleDetails: "Detalles de la gráfica",
       descriptionDetails: "Lorem ipsum dolor sit amet, consectet",
-      code: TypeCharts.AREA.code,
+      code: "TypeCharts.AREA.code",
       component: <PercentChartArea />,
     },
   ],
-  pie: [
+  PIE: [
     {
       id: uuidv4(),
       titleChart: "Titulo de ejemplo",
       description: "Lorem ipsum dolor sit amet, consectetur",
       titleDetails: "Detalles de la gráfica",
       descriptionDetails: "Lorem ipsum dolor sit amet, consectet",
-      code: TypeCharts.PIE.code,
+      code: "TypeCharts.PIE.code",
       component: <PieChartCustomizable />,
+    },
+  ],
+  LINEBAR: [
+    {
+      id: uuidv4(),
+      titleChart: "Titulo de ejemplo",
+      description: "Lorem ipsum dolor sit amet, consectetur",
+      titleDetails: "Detalles de la gráfica",
+      descriptionDetails: "Lorem ipsum dolor sit amet, consectet",
+      code: "TypeCharts.LINEBAR.code",
+      component: <LineBarchCharts />,
     },
   ],
 };
@@ -173,7 +186,7 @@ const CardChart = () => {
         justifyContent={"center"}
         alignItems={"center"}
       >
-        {data.presentation.map((item) => {
+        {data.PRESENTATION.map((item) => {
           return (
             <Card key={item.id}>
               <CardHeader padding={2}>
@@ -230,7 +243,7 @@ const CardChart = () => {
         justifyContent={"center"}
         alignItems={"center"}
       >
-        {data.bar.map((item) => {
+        {data.BAR.map((item) => {
           return (
             <Card key={item.id}>
               <CardHeader padding={2}>
@@ -287,7 +300,7 @@ const CardChart = () => {
         justifyContent={"center"}
         alignItems={"center"}
       >
-        {data.area.map((item) => {
+        {data.AREA.map((item) => {
           return (
             <Card key={item.id}>
               <CardHeader padding={2}>
@@ -344,7 +357,7 @@ const CardChart = () => {
         justifyContent={"center"}
         alignItems={"center"}
       >
-        {data.pie.map((item) => {
+        {data.PIE.map((item) => {
           return (
             <Card key={item.id}>
               <CardHeader padding={2}>

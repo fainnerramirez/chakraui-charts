@@ -1,25 +1,10 @@
+import { CodeTypeChartsData, DataChartType } from "../types/PropsCharts";
+
 const getRamdom = (): number => {
-  return Math.floor(Math.random() * 10000);
+  return Math.floor(Math.random() * 10000) + 1;
 };
 
-type DataChartType = {
-  mes: string;
-  data: number;
-  data2: number;
-};
-
-type CodeType = {
-  code: string;
-};
-
-type TypeCharts = {
-  BAR: CodeType;
-  LINEBAR: CodeType;
-  AREA: CodeType;
-  PIE: CodeType;
-};
-
-export const DataChart: DataChartType[] = [
+export const DataChart: Array<DataChartType> = [
   { mes: "Ene", data: getRamdom(), data2: getRamdom() },
   { mes: "Feb", data: getRamdom(), data2: getRamdom() },
   { mes: "Mar", data: getRamdom(), data2: getRamdom() },
@@ -34,7 +19,7 @@ export const DataChart: DataChartType[] = [
   { mes: "Dic", data: getRamdom(), data2: getRamdom() },
 ];
 
-export const DataChartPie: Omit<DataChartType, "data2">[] = [
+export const DataChartPie: Array<Omit<DataChartType, "data2">> = [
   { mes: "Ene", data: getRamdom() },
   { mes: "Feb", data: getRamdom() },
   { mes: "Mar", data: getRamdom() },
@@ -42,258 +27,253 @@ export const DataChartPie: Omit<DataChartType, "data2">[] = [
   { mes: "May", data: getRamdom() },
 ];
 
-export const TypeCharts: TypeCharts = {
+// type CodeTypeChartsData = {
+//   BAR: Array<TypeCodeChart>;
+//   LINEBAR: Array<TypeCodeChart>;
+//   AREA: Array<TypeCodeChart>;
+//   PIE: Array<TypeCodeChart>;
+// };
+
+// export const DataCode: CodeTypeChartsData = {
+//   BAR: [
+//     {
+//       nameChart: "Barras Simples",
+//       code: `
+//         import { useColorModeValue } from "@chakra-ui/react";
+// import { useContext } from "react";
+// import { Bar, BarChart, Tooltip, XAxis } from "recharts";
+// import { ColorContext } from "../../contexts/PalletteColorContext";
+// import { PropsChart } from "../../types/PropsCharts";
+// import { DataChart } from "../../utils/data-charts";
+
+// export const BarCharts: React.FC<PropsChart> = ({ isDrawer }) => {
+//   const tooltipColor = useColorModeValue("#000000", "white");
+//   const tooltipBg = useColorModeValue("#ffffff", "gray");
+//   const { palletteColor } = useContext(ColorContext);
+
+//   return (
+//     <BarChart
+//       width={isDrawer ? 600 : 350}
+//       height={250}
+//       accessibilityLayer
+//       data={DataChart}
+//     >
+//       <Tooltip
+//         contentStyle={{
+//           color: tooltipColor,
+//           backgroundColor: tooltipBg,
+//           borderRadius: 10,
+//         }}
+//       />
+//       <XAxis
+//         dataKey="mes"
+//         tickLine={false}
+//         tickMargin={10}
+//         axisLine={false}
+//         tickFormatter={(value: any) => value.slice(0, 3)}
+//       />
+//       <Bar dataKey="data" fill={palletteColor} strokeWidth={2} radius={8} />
+//     </BarChart>
+//   );
+// };
+
+//       `,
+//     },
+//     {
+//       nameChart: "Barras Customizable",
+//       code: `
+//  import { useContext } from "react";
+// import { Bar, BarChart, Cell, XAxis } from "recharts";
+// import { ColorContext } from "../../contexts/PalletteColorContext";
+// import { PropsChart } from "../../types/PropsCharts";
+// import { DataChart } from "../../utils/data-charts";
+
+// const getPathString = (x: number, y: number, width: number, height: number) => {
+//   return \`M\${x},\${y + height} C\${x + width / 3},\${y + height} \${x + width / 2},\${y + height / 3}
+//           \${x + width / 2}, \${y}
+//           C\${x + width / 2},\${y + height / 3} \${x + (2 * width) / 3},\${y + height}
+//           \${x + width}, \${y + height} Z\`;
+// };
+
+// const TriangleBar = (props: any) => {
+//   const { fill, x, y, width, height } = props;
+
+//   // Almacenar el string del path en una variable
+//   const pathString = getPathString(x, y, width, height);
+
+//   return <path d={pathString} stroke="none" fill={fill} />;
+// };
+
+// export const CustomBarChart: React.FC<PropsChart> = ({ isDrawer }) => {
+//   const { palletteColor } = useContext(ColorContext);
+
+//   return (
+//     <BarChart width={isDrawer ? 600 : 350} height={250} data={DataChart}>
+//       <XAxis dataKey="mes" />
+//       <Bar
+//         dataKey="data"
+//         fill="#8884d8"
+//         shape={<TriangleBar />}
+//         label={{ position: "top" }}
+//       >
+//         {DataChart.map((_, index) => (
+//           <Cell key={\`cell-\${index}\`} fill={palletteColor} />
+//         ))}
+//       </Bar>
+//     </BarChart>
+//   );
+// };
+// `,
+//     },
+//     {
+//       nameChart: "Barras Dobles",
+//       code: `
+//         import { useContext } from "react";
+// import { Bar, BarChart, Rectangle, Tooltip, XAxis } from "recharts";
+// import { ColorContext } from "../../contexts/PalletteColorContext";
+// import { PropsChart } from "../../types/PropsCharts";
+// import { DataChart } from "../../utils/data-charts";
+
+// export const DobleBarChart: React.FC<PropsChart> = ({ isDrawer }) => {
+//   const { palletteColor } = useContext(ColorContext);
+//   return (
+//     <BarChart width={isDrawer ? 600 : 350} height={250} data={DataChart}>
+//       <XAxis dataKey="mes" />
+//       <Tooltip />
+//       <Bar
+//         dataKey="data"
+//         fill={palletteColor}
+//         activeBar={<Rectangle fill="gray" stroke="blue" />}
+//         radius={8}
+//       />
+//       <Bar
+//         dataKey="data2"
+//         fill={palletteColor}
+//         activeBar={<Rectangle fill="gray" stroke="purple" />}
+//         radius={8}
+//       />
+//     </BarChart>
+//   );
+// };
+
+//       `,
+//     },
+//     {
+//       nameChart: "Barras Verticales",
+//       code: `
+//         import { useContext } from "react";
+// import {
+//   Area,
+//   Bar,
+//   CartesianGrid,
+//   ComposedChart,
+//   Legend,
+//   Line,
+//   Tooltip,
+//   XAxis,
+//   YAxis,
+// } from "recharts";
+// import { ColorContext } from "../../contexts/PalletteColorContext";
+// import { PropsChart } from "../../types/PropsCharts";
+// import { DataChart } from "../../utils/data-charts";
+
+// export const VerticalBarChart: React.FC<PropsChart> = ({ isDrawer }) => {
+//   const { palletteColor } = useContext(ColorContext);
+
+//   return (
+//     <ComposedChart
+//       layout="vertical"
+//       width={isDrawer ? 600 : 350}
+//       height={250}
+//       data={DataChart}
+//       margin={{
+//         top: 20,
+//         right: 20,
+//         bottom: 20,
+//         left: 20,
+//       }}
+//     >
+//       <CartesianGrid stroke="#f5f5f5" />
+//       <XAxis type="number" />
+//       <YAxis dataKey="mes" type="category" scale="band" />
+//       <Tooltip />
+//       <Legend />
+//       <Area dataKey="data" fill="#8884d8" stroke="#8884d8" />
+//       <Bar dataKey="data" barSize={20} fill={palletteColor} />
+//       <Line dataKey="data2" stroke={palletteColor} />
+//     </ComposedChart>
+//   );
+// };
+
+//       `,
+//     },
+//   ],
+//   AREA: [
+//     {
+//       nameChart: "Área",
+//       code: `
+//         import { useContext } from "react";`,
+//     },
+//   ],
+//   LINEBAR: [
+//     {
+//       nameChart: "Linea y Barras",
+//       code: `
+//         import { useContext } from "react";`,
+//     },
+//   ],
+//   PIE: [
+//     {
+//       nameChart: "Torta",
+//       code: `
+//         import { useContext } from "react";`,
+//     },
+//   ],
+// };
+
+export const DataCode: CodeTypeChartsData = {
   BAR: {
-    code: `import {
-  Card,
-  CardBody,
-  CardFooter,
-  CardHeader,
-  Divider,
-  Flex,
-  Heading,
-  StepSeparator,
-  Text,
-  useColorModeValue,
-} from "@chakra-ui/react";
-import React, { PureComponent } from "react";
-import {
-  BarChart,
-  Bar,
-  ResponsiveContainer,
-  Tooltip,
-  Legend,
-  PieChart,
-  Pie,
-  Cell,
-  Label,
-  CartesianGrid,
-  XAxis,
-  YAxis,
-  Rectangle,
-} from "recharts";
-
-const getRamdom = () => {
-  return Math.floor(Math.random() * 10000);
-};
-
-const data = [
-  { mes: "Ene", data: getRamdom() },
-  { mes: "Feb", data: getRamdom() },
-  { mes: "Mar", data: getRamdom() },
-  { mes: "Abr", data: getRamdom() },
-  { mes: "May", data: getRamdom() },
-  { mes: "Jun", data: getRamdom() },
-  { mes: "Jul", data: getRamdom() },
-  { mes: "Ago", data: getRamdom() },
-  { mes: "Sep", data: getRamdom() },
-  { mes: "Oct", data: getRamdom() },
-  { mes: "Nov", data: getRamdom() },
-  { mes: "Dic", data: getRamdom() },
-];
-
-const COLORS = [
-  "#0088FE",
-  "#00C49F",
-  "#FFBB28",
-  "#FF8042",
-  "#0088FE",
-  "#00C49F",
-  "#FFBB28",
-  "#FF8042",
-  "#0088FE",
-  "#00C49F",
-  "#FFBB28",
-  "#FF8042",
-];
-
-export const BarCharts = () => {
-  return (
-    <Flex
-      justifyContent={"center"}
-      alignContent={"center"}
-      width={{ base: "100%", md: "50%" }}
-      height={"100%"}
-    >
-      <Card bg={useColorModeValue("gray.50", "gray.900")}>
-        <CardHeader>
-          <Heading as="h2" size={"md"} textAlign={"center"}>
-            data Mensuales
-          </Heading>
-        </CardHeader>
-        <CardBody>
-          <BarChart width={700} height={500} accessibilityLayer data={data}>
-            <YAxis />
-            <Tooltip />
-            <Bar
-              dataKey="data"
-              fill={COLORS[Math.floor(Math.random() * COLORS.length)]}
-              strokeWidth={2}
-              radius={8}
-            />
-          </BarChart>
-        </CardBody>
-        <Divider />
-        <CardFooter width={"100%"}>
-          <Text textAlign={"center"} width={"100%"}>
-            Resumen mensual del número de data de tus publicaciones en
-            Unipensiones
-          </Text>
-        </CardFooter>
-      </Card>
-    </Flex>
-  );
-};`,
-  },
-  LINEBAR: {
-    code: `
-        import {
-  ComposedChart,
-  Line,
-  Area,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  Scatter,
-} from "recharts";
-
-export const DataChart = [
-  { mes: "Ene", data: getRamdom() },
-  { mes: "Feb", data: getRamdom() },
-  { mes: "Mar", data: getRamdom() },
-  { mes: "Abr", data: getRamdom() },
-  { mes: "May", data: getRamdom() },
-  { mes: "Jun", data: getRamdom() },
-  { mes: "Jul", data: getRamdom() },
-  { mes: "Ago", data: getRamdom() },
-  { mes: "Sep", data: getRamdom() },
-  { mes: "Oct", data: getRamdom() },
-  { mes: "Nov", data: getRamdom() },
-  { mes: "Dic", data: getRamdom() },
-];
-
-export const LineBarchCharts = ({ isDrawer }: any) => {
-
-  return (
-    <ComposedChart width={isDrawer ? 600 : 350} height={250} data={DataChart}>
-      <XAxis dataKey="mes" scale="band" />
-      <Tooltip />
-      <Area
-        type="monotone"
-        dataKey="data"
-        fill={"#000000"}
-        stroke={"#000000"}
-      />
-      <Bar dataKey="data" barSize={20} fill={"#000000"} radius={8} />
-      <Line type="monotone" dataKey="data" stroke={"#000000"} />
-      <Scatter dataKey="data" fill={"#CBD5E0"} />
-    </ComposedChart>
-  );
-};
-    `,
+    barSimple: {
+      data: {
+        nameChart: "Barra Simple",
+        code: "",
+      },
+    },
+    barDoble: {
+      data: {
+        nameChart: "Barra Simple",
+        code: "",
+      },
+    },
   },
   AREA: {
-    code: `
-    import {
-  AreaChart,
-  Area,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-} from "recharts";
-
-export const AreaCharts = ({ isDrawer }: any) => {
-
-  return (
-    <AreaChart
-      data={DataChart}
-      width={isDrawer ? 600 : 350}
-      height={250}
-      accessibilityLayer
-    >
-      <XAxis dataKey="mes" />
-      <Tooltip />
-      <Area
-        type="monotone"
-        dataKey="data"
-        stroke={"#000000"}
-        fill={"#000000"}
-      />
-    </AreaChart>
-  );
-};
-    `,
+    barSimple: {
+      data: {
+        nameChart: "",
+        code: "",
+      },
+    },
+  },
+  LINEBAR: {
+    barDoble: {
+      data: {
+        nameChart: "",
+        code: "",
+      },
+    },
+    barSimple: {
+      data: {
+        nameChart: "",
+        code: "",
+      },
+    },
   },
   PIE: {
-    code: `
-    import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from "recharts";
-import { DataChart } from "../../utils/data-charts";
-import { ColorContext } from "../../contexts/PalletteColorContext";
-import { useContext } from "react";
-
-const data = [
-  { name: "Group A", value: 400 },
-  { name: "Group B", value: 300 },
-  { name: "Group C", value: 300 },
-  { name: "Group D", value: 200 },
-];
-
-const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
-
-const RADIAN = Math.PI / 180;
-const renderCustomizedLabel = ({
-  cx,
-  cy,
-  midAngle,
-  innerRadius,
-  outerRadius,
-  percent,
-  index,
-}) => {
-  const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
-  const x = cx + radius * Math.cos(-midAngle * RADIAN);
-  const y = cy + radius * Math.sin(-midAngle * RADIAN);
-
-  return (
-    <text
-      x={x}
-      y={y}
-      fill="white"
-      textAnchor={x > cx ? "start" : "end"}
-      dominantBaseline="central"
-    >
-      {(percent * 100).toFixed(0)} + "%"}
-    </text>
-  );
-};
-
-export const PieChartCustomizable = () => {
-  const { palletteColor } = useContext(ColorContext);
-
-  return (
-    <PieChart width={400} height={400}>
-      <Pie
-        data={DataChart}
-        cx="50%"
-        cy="50%"
-        labelLine={false}
-        label={renderCustomizedLabel}
-        outerRadius={80}
-        fill="#8884d8"
-        dataKey="data1"
-      >
-        {data.map((entry, index) => (
-          <Cell key={index} fill={palletteColor} />
-        ))}
-      </Pie>
-    </PieChart>
-  );
-};
-    `,
+    barSimple: {
+      data: {
+        nameChart: "",
+        code: "",
+      },
+    },
   },
 };

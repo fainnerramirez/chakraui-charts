@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 type typeColorContext = {
   palletteColor: string;
-  setPalleteColor: Function;
+  setPalleteColor: React.Dispatch<React.SetStateAction<string>>;
 };
 
 export const ColorContext = React.createContext<typeColorContext>({
