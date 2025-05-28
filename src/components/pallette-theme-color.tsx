@@ -8,8 +8,8 @@ const PalletteThemeColor: React.FC = () => {
     <Stack
       direction={"column"}
       spacing={3}
-      position={"fixed"}
-      right={280}
+      position={"sticky"}
+      top={10}
       display={{ base: "none", md: "none", lg: "inline-flex" }}
     >
       <Tooltip label="Verde" placement="right">
