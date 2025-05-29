@@ -11,7 +11,7 @@ const ChartsOptions: React.FC = () => {
   return (
     <Box
       width={"100%"}
-      display={"flex"}
+      display={"flex"} 
       justifyContent={"flex-start"}
       alignItems={"center"}
       flexDirection={"column"}

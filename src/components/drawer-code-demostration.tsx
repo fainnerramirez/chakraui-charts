@@ -54,16 +54,21 @@ const DrawerCodeDemostration: React.FC<PropsDrawerChart> = ({
   };
 
   return (
-    <>
+    <Box>
       <Button variant={"outline"} size={"small"} onClick={onOpen}>
         Ver código
       </Button>
-      <Drawer isOpen={isOpen} placement="right" onClose={onClose} size={"lg"}>
+      <Drawer
+        isOpen={isOpen}
+        placement="right"
+        onClose={onClose}
+        size={{ base: "full", md: "md" }}
+        key={new Date().getTime()}>
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
           <DrawerHeader>{title}</DrawerHeader>
-          <DrawerBody>
+          <DrawerBody overflowX={"hidden"}>
             <Card
               display={"flex"}
               justifyContent={"center"}
@@ -110,7 +115,7 @@ const DrawerCodeDemostration: React.FC<PropsDrawerChart> = ({
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
-    </>
+    </Box>
   );
 };
 
