@@ -1,11 +1,10 @@
-import { useContext } from "react";
 import { Area, AreaChart, Tooltip, XAxis } from "recharts";
-import { ColorContext } from "../../contexts/PalletteColorContext";
 import { PropsChart } from "../../types/PropsCharts";
 import { DataChart } from "../../utils/data-charts";
+import { usePaletteStore } from "../../store/pallette-store";
 
 export const AreaCharts: React.FC<PropsChart> = ({ isDrawer }) => {
-  const { palletteColor } = useContext(ColorContext);
+  const { paletteColor } = usePaletteStore();
 
   return (
     <AreaChart
@@ -19,8 +18,8 @@ export const AreaCharts: React.FC<PropsChart> = ({ isDrawer }) => {
       <Area
         type="monotone"
         dataKey="data"
-        stroke={palletteColor}
-        fill={palletteColor}
+        stroke={paletteColor}
+        fill={paletteColor}
       />
     </AreaChart>
   );

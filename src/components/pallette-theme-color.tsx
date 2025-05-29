@@ -1,9 +1,8 @@
 import { Button, Stack, Tooltip } from "@chakra-ui/react";
-import { useContext } from "react";
-import { ColorContext } from "../contexts/PalletteColorContext";
+import { usePaletteStore } from "../store/pallette-store";
 
 const PalletteThemeColor: React.FC = () => {
-  const { setPalleteColor } = useContext(ColorContext);
+  const { setPaletteColor } = usePaletteStore();
   return (
     <Stack
       direction={"column"}
@@ -15,43 +14,43 @@ const PalletteThemeColor: React.FC = () => {
       <Tooltip label="Verde" placement="right">
         <Button
           bg={"#6A9C89"}
-          onClick={() => setPalleteColor("#6A9C89")}
+          onClick={() => setPaletteColor("#6A9C89")}
         ></Button>
       </Tooltip>
       <Tooltip label="Púrpura" placement="right">
         <Button
           bg={"#7A1CAC"}
-          onClick={() => setPalleteColor("#7A1CAC")}
+          onClick={() => setPaletteColor("#7A1CAC")}
         ></Button>
       </Tooltip>
       <Tooltip label="Azul oscuro" placement="right">
         <Button
           bg={"#1F2544"}
-          onClick={() => setPalleteColor("#1F2544")}
+          onClick={() => setPaletteColor("#1F2544")}
         ></Button>
       </Tooltip>
       <Tooltip label="Naranja" placement="right">
         <Button
           bg={"#FC6736"}
-          onClick={() => setPalleteColor("#FC6736")}
+          onClick={() => setPaletteColor("#FC6736")}
         ></Button>
       </Tooltip>
       <Tooltip label="Grís" placement="right">
         <Button
           bg={"#7C93C3"}
-          onClick={() => setPalleteColor("#7C93C3")}
+          onClick={() => setPaletteColor("#7C93C3")}
         ></Button>
       </Tooltip>
       <Tooltip label="Amarillo" placement="right">
         <Button
           bg={"#FBA834"}
-          onClick={() => setPalleteColor("#FBA834")}
+          onClick={() => setPaletteColor("#FBA834")}
         ></Button>
       </Tooltip>
       <Tooltip label="Azul celeste" placement="right">
         <Button
           bg={"#3182ce"}
-          onClick={() => setPalleteColor("#3182ce")}
+          onClick={() => setPaletteColor("#3182ce")}
         ></Button>
       </Tooltip>
     </Stack>

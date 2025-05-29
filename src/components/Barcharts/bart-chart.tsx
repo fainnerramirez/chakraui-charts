@@ -1,14 +1,13 @@
 import { useColorModeValue } from "@chakra-ui/react";
-import { useContext } from "react";
 import { Bar, BarChart, Tooltip, XAxis } from "recharts";
-import { ColorContext } from "../../contexts/PalletteColorContext";
 import { PropsChart } from "../../types/PropsCharts";
 import { DataChart } from "../../utils/data-charts";
+import { usePaletteStore } from "../../store/pallette-store";
 
 export const BarCharts: React.FC<PropsChart> = ({ isDrawer }) => {
   const tooltipColor = useColorModeValue("#000000", "white");
   const tooltipBg = useColorModeValue("#ffffff", "gray");
-  const { palletteColor } = useContext(ColorContext);
+  const { paletteColor } = usePaletteStore();
 
   return (
     <BarChart
@@ -31,7 +30,7 @@ export const BarCharts: React.FC<PropsChart> = ({ isDrawer }) => {
         axisLine={false}
         tickFormatter={(value: any) => value.slice(0, 3)}
       />
-      <Bar dataKey="data" fill={palletteColor} strokeWidth={2} radius={8} />
+      <Bar dataKey="data" fill={paletteColor} strokeWidth={2} radius={8} />
     </BarChart>
   );
 };

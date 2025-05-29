@@ -1,8 +1,7 @@
-import { useContext } from "react";
 import { Cell, Pie, PieChart, Tooltip } from "recharts";
-import { ColorContext } from "../../contexts/PalletteColorContext";
 import { PropsChart } from "../../types/PropsCharts";
 import { DataChart, DataChartPie } from "../../utils/data-charts";
+import { usePaletteStore } from "../../store/pallette-store";
 
 const RADIAN = Math.PI / 180;
 
@@ -42,7 +41,7 @@ const renderCustomizedLabel = ({
 };
 
 export const PieChartCustomizable: React.FC<PropsChart> = ({ isDrawer }) => {
-  const { palletteColor } = useContext(ColorContext);
+  const { paletteColor } = usePaletteStore();
 
   return (
     <PieChart width={isDrawer ? 600 : 350} height={250}>
@@ -57,7 +56,7 @@ export const PieChartCustomizable: React.FC<PropsChart> = ({ isDrawer }) => {
         dataKey="data"
       >
         {DataChart.map((_, index) => (
-          <Cell key={`cell-${index}`} fill={palletteColor} />
+          <Cell key={`cell-${index}`} fill={paletteColor} />
         ))}
       </Pie>
       <Tooltip />

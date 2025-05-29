@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import {
   Area,
   AreaChart,
@@ -7,9 +6,9 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { ColorContext } from "../../contexts/PalletteColorContext";
 import { PropsChart } from "../../types/PropsCharts";
 import { DataChart } from "../../utils/data-charts";
+import { usePaletteStore } from "../../store/pallette-store";
 
 const toPercent = (decimal: number, fixed = 0) =>
   `${(decimal * 100).toFixed(fixed)}%`;
@@ -42,7 +41,7 @@ const renderTooltipContent = (o: any) => {
 };
 
 export const PercentChartArea: React.FC<PropsChart> = ({ isDrawer }) => {
-  const { palletteColor } = useContext(ColorContext);
+  const { paletteColor } = usePaletteStore();
 
   return (
     <AreaChart
@@ -60,7 +59,7 @@ export const PercentChartArea: React.FC<PropsChart> = ({ isDrawer }) => {
         dataKey="data"
         stackId="1"
         stroke="#8884d8"
-        fill={palletteColor}
+        fill={paletteColor}
       />
       <Area
         type="monotone"

@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import {
   Area,
   Bar,
@@ -10,12 +9,12 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { ColorContext } from "../../contexts/PalletteColorContext";
 import { PropsChart } from "../../types/PropsCharts";
 import { DataChart } from "../../utils/data-charts";
+import { usePaletteStore } from "../../store/pallette-store";
 
 export const VerticalBarChart: React.FC<PropsChart> = ({ isDrawer }) => {
-  const { palletteColor } = useContext(ColorContext);
+  const { paletteColor } = usePaletteStore();
 
   return (
     <ComposedChart
@@ -36,8 +35,8 @@ export const VerticalBarChart: React.FC<PropsChart> = ({ isDrawer }) => {
       <Tooltip />
       <Legend />
       <Area dataKey="data" fill="#8884d8" stroke="#8884d8" />
-      <Bar dataKey="data" barSize={20} fill={palletteColor} />
-      <Line dataKey="data2" stroke={palletteColor} />
+      <Bar dataKey="data" barSize={20} fill={paletteColor} />
+      <Line dataKey="data2" stroke={paletteColor} />
     </ComposedChart>
   );
 };

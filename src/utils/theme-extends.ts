@@ -2,13 +2,11 @@ import { defineStyleConfig, extendTheme } from "@chakra-ui/react";
 import "@fontsource/ubuntu";
 
 const Button = defineStyleConfig({
-  // The styles all button have in common
   baseStyle: {
     fontWeight: "bold",
     textTransform: "capitalize",
-    borderRadius: "base", // <-- border radius is same for all variants and sizes
+    borderRadius: "base",
   },
-  // Two sizes: sm and md
   sizes: {
     small: {
       fontsize: "8px",
@@ -17,16 +15,15 @@ const Button = defineStyleConfig({
     },
     sm: {
       fontSize: "sm",
-      px: 4, // <-- px is short for paddingLeft and paddingRight
-      py: 3, // <-- py is short for paddingTop and paddingBottom
+      px: 4, 
+      py: 3,
     },
     md: {
       fontSize: "md",
-      px: 6, // <-- these values are tokens from the design system
-      py: 4, // <-- these values are tokens from the design system
+      px: 6,
+      py: 4,
     },
   },
-  // Two variants: outline and solid
   variants: {
     primary: {
       bg: "blackAlpha.900",
@@ -40,7 +37,6 @@ const Button = defineStyleConfig({
       border: "2px solid black",
     },
   },
-  // The default size and variant values
   defaultProps: {
     size: "md",
     variant: "primary",
