@@ -1,6 +1,6 @@
 import { useColorModeValue } from "@chakra-ui/react";
 import { Bar, BarChart, Tooltip, XAxis } from "recharts";
-import { PropsChart } from "../../types/PropsCharts";
+import type { PropsChart } from "../../types/PropsCharts";
 import { DataChart } from "../../utils/data-charts";
 import { usePaletteStore } from "../../store/pallette-store";
 

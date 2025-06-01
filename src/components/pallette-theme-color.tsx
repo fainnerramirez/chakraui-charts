@@ -1,8 +1,45 @@
-import { Button, Stack, Tooltip } from "@chakra-ui/react";
-import { usePaletteStore } from "../store/pallette-store";
+import { Stack } from "@chakra-ui/react";
+import { ButtonPaletteColor, ButtonPaletteProps } from "./button-palette-color";
+
+/**
+ * 
+ * #4A90E2  // Azul claro - Color principal de barras o áreas
+#50E3C2  // Verde suave - Alternativa secundaria o para comparación
+#D9E1E8  // Gris claro - Fondos o líneas de referencia
+#34495E  // Azul marino - Texto o líneas
+#F8E71C  // Amarillo pastel - Resaltados o alertas suaves
+#F5A623  // Coral claro - Para contrastes o datos especiales
+#9B59B6  // Morado grisáceo - Categorías alternativas
+
+ */
+const buttonsPaletteData: Array<ButtonPaletteProps> = [
+  {
+    bg: "#4A90E2",
+    labelTooltip: "Azul Claro"
+  },
+  {
+    bg: "#50E3C2",
+    labelTooltip: "Verde Suave"
+  },
+  {
+    bg: "#D9E1E8",
+    labelTooltip: "Gris Claro"
+  },
+  {
+    bg: "#F8E71C",
+    labelTooltip: "Amarillo Pastel"
+  },
+  {
+    bg: "#F5A623",
+    labelTooltip: "Coral Claro"
+  },
+  {
+    bg: "#9B59B6",
+    labelTooltip: "Morado Grisáceo"
+  }
+]
 
 const PalletteThemeColor: React.FC = () => {
-  const { setPaletteColor } = usePaletteStore();
   return (
     <Stack
       direction={"column"}
@@ -11,48 +48,13 @@ const PalletteThemeColor: React.FC = () => {
       top={10}
       display={{ base: "none", md: "none", lg: "inline-flex" }}
     >
-      <Tooltip label="Verde" placement="right">
-        <Button
-          bg={"#6A9C89"}
-          onClick={() => setPaletteColor("#6A9C89")}
-        ></Button>
-      </Tooltip>
-      <Tooltip label="Púrpura" placement="right">
-        <Button
-          bg={"#7A1CAC"}
-          onClick={() => setPaletteColor("#7A1CAC")}
-        ></Button>
-      </Tooltip>
-      <Tooltip label="Azul oscuro" placement="right">
-        <Button
-          bg={"#1F2544"}
-          onClick={() => setPaletteColor("#1F2544")}
-        ></Button>
-      </Tooltip>
-      <Tooltip label="Naranja" placement="right">
-        <Button
-          bg={"#FC6736"}
-          onClick={() => setPaletteColor("#FC6736")}
-        ></Button>
-      </Tooltip>
-      <Tooltip label="Grís" placement="right">
-        <Button
-          bg={"#7C93C3"}
-          onClick={() => setPaletteColor("#7C93C3")}
-        ></Button>
-      </Tooltip>
-      <Tooltip label="Amarillo" placement="right">
-        <Button
-          bg={"#FBA834"}
-          onClick={() => setPaletteColor("#FBA834")}
-        ></Button>
-      </Tooltip>
-      <Tooltip label="Azul celeste" placement="right">
-        <Button
-          bg={"#3182ce"}
-          onClick={() => setPaletteColor("#3182ce")}
-        ></Button>
-      </Tooltip>
+      {
+        buttonsPaletteData.map((button, _) => {
+          return (
+            <ButtonPaletteColor key={new Date().getTime()} {...button} />
+          )
+        })
+      }
     </Stack>
   );
 };

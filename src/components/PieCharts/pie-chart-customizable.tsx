@@ -1,5 +1,5 @@
 import { Cell, Pie, PieChart, Tooltip } from "recharts";
-import { PropsChart } from "../../types/PropsCharts";
+import type { PropsChart } from "../../types/PropsCharts";
 import { DataChart, DataChartPie } from "../../utils/data-charts";
 import { usePaletteStore } from "../../store/pallette-store";
 

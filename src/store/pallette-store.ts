@@ -11,8 +11,9 @@ export const usePaletteStore = create<PaletteStore>()(
         (set) => ({
             paletteColor: "",
             setPaletteColor: (color: string) => set(() => ({ paletteColor: color })),
-        }), {
-        name: "palette-color-storage",
-    }
+        }),
+        {
+            name: "palette-color-storage",
+        }
     )
 )

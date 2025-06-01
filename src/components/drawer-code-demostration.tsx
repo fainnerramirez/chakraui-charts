@@ -22,7 +22,7 @@ import React from "react";
 import { IoMdCopy } from "react-icons/io";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import { PropsDrawerChart } from "../types/PropsCharts";
+import type { PropsDrawerChart } from "../types/PropsCharts";
 
 const DrawerCodeDemostration: React.FC<PropsDrawerChart> = ({
   code,
@@ -81,13 +81,10 @@ const DrawerCodeDemostration: React.FC<PropsDrawerChart> = ({
               <VStack width={"100%"}>
                 <Flex
                   direction={"row"}
-                  justifyContent={"space-between"}
+                  justifyContent={"end"}
                   alignItems={"center"}
                   width={"100%"}
                 >
-                  <Button variant={"primary"} size={"small"}>
-                    Código
-                  </Button>
                   <Button
                     variant={"outline"}
                     size={"sm"}
