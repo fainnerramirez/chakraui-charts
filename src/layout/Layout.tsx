@@ -1,4 +1,4 @@
-import { Box, Container } from "@chakra-ui/react";
+import { Container } from "@chakra-ui/react";
 import React from "react";
 import FooterApp from "../components/footer-app";
 import { NavbarApp } from "../components/navbar-app";
