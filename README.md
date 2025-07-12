@@ -125,3 +125,7 @@ export const BarCharts = () => {
 Hecho por [@Fainner Ramirez](https://v2.chakra-ui.com/)
 
 - ¿Quieres ser sponsor? [sponsorsup](https://link.mercadopago.com.co/sponsorsup)
+
+## Licencia
+
+Este proyecto está licenciado bajo la Licencia MIT - consulta el archivo [LICENSE](./LICENSE) para más detalles.
